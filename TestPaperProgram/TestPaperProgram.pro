@@ -9,11 +9,27 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Answer.cpp \
+    Game.cpp \
+    Question.cpp \
+    Quiz.cpp \
+    ResultCounterService.cpp \
+    TestQuizBuilder.cpp \
+    Tutor.cpp \
     main.cpp \
     mainwindow.cpp \
     testpaperwindow.cpp
 
 HEADERS += \
+    Answer.h \
+    Game.h \
+    IQuizBuilder.h \
+    IResultCounterService.h \
+    Question.h \
+    Quiz.h \
+    ResultCounterService.h \
+    TestQuizBuilder.h \
+    Tutor.h \
     mainwindow.h \
     testpaperwindow.h
 
@@ -25,3 +41,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    TestPaperProgram.pro.user

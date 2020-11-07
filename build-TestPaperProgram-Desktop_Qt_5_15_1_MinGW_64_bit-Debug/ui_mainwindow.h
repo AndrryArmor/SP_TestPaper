@@ -23,8 +23,8 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *ButtonStartTest;
+    QPushButton *ButtonQuit;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -35,16 +35,16 @@ public:
         MainWindow->resize(320, 420);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 50, 300, 100));
+        ButtonStartTest = new QPushButton(centralwidget);
+        ButtonStartTest->setObjectName(QString::fromUtf8("ButtonStartTest"));
+        ButtonStartTest->setGeometry(QRect(10, 50, 300, 100));
         QFont font;
         font.setPointSize(20);
-        pushButton->setFont(font);
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 220, 300, 100));
-        pushButton_2->setFont(font);
+        ButtonStartTest->setFont(font);
+        ButtonQuit = new QPushButton(centralwidget);
+        ButtonQuit->setObjectName(QString::fromUtf8("ButtonQuit"));
+        ButtonQuit->setGeometry(QRect(10, 220, 300, 100));
+        ButtonQuit->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -62,8 +62,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\320\237\321\200\320\276\320\263\321\200\320\260\320\274\320\260 \320\264\320\273\321\217 \321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\321\207\320\260\321\202\320\270 \321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\271\321\202\320\270 \320\267 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\270", nullptr));
+        ButtonStartTest->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\321\207\320\260\321\202\320\270 \321\202\320\265\321\201\321\202\321\203\320\262\320\260\320\275\320\275\321\217", nullptr));
+        ButtonQuit->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\271\321\202\320\270 \320\267 \320\277\321\200\320\276\320\263\321\200\320\260\320\274\320\270", nullptr));
     } // retranslateUi
 
 };
