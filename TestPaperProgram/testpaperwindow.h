@@ -15,6 +15,13 @@ public:
     explicit TestPaperWindow(QWidget *parent = nullptr);
     ~TestPaperWindow();
 
+private slots:
+    void on_buttonToMain_clicked();
+
+    void on_buttonNext_clicked();
+
+    void on_buttonFinishTest_clicked();
+
 private:
     Ui::TestPaperWindow *ui;
 };
