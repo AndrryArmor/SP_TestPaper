@@ -1,6 +1,6 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "testpaperwindow.h"
+#include "MainWindow.h"
+#include "ui_MainWindow.h"
+#include "TestPaperWindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,5 +19,10 @@ void MainWindow::on_ButtonStartTest_clicked()
 {
     TestPaperWindow* testWindow = new TestPaperWindow(this);
     this->hide();
-    testWindow->show();
+    testWindow->show();    
+}
+
+void MainWindow::on_ButtonQuit_clicked()
+{
+    exit(0);
 }

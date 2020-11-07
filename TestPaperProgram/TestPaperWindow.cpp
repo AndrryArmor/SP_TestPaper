@@ -1,5 +1,5 @@
-#include "testpaperwindow.h"
-#include "ui_testpaperwindow.h"
+#include "TestPaperWindow.h"
+#include "ui_TestPaperWindow.h"
 
 TestPaperWindow::TestPaperWindow(QWidget *parent) :
     QMainWindow(parent),

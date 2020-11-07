@@ -11,31 +11,32 @@ CONFIG += c++11
 SOURCES += \
     Answer.cpp \
     Game.cpp \
+    MainWindow.cpp \
     Question.cpp \
     Quiz.cpp \
     ResultCounterService.cpp \
+    TestPaperWindow.cpp \
     TestQuizBuilder.cpp \
     Tutor.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    testpaperwindow.cpp
+    main.cpp
 
 HEADERS += \
     Answer.h \
     Game.h \
     IQuizBuilder.h \
     IResultCounterService.h \
+    MainWindow.h \
     Question.h \
     Quiz.h \
     ResultCounterService.h \
+    TestPaperWindow.h \
     TestQuizBuilder.h \
-    Tutor.h \
-    mainwindow.h \
-    testpaperwindow.h
+    Tutor.h
 
 FORMS += \
-    mainwindow.ui \
-    testpaperwindow.ui
+    MainWindow.ui \
+    MainWindow.ui \
+    TestPaperWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

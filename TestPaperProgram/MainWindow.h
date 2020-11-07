@@ -18,6 +18,8 @@ public:
 private slots:
     void on_ButtonStartTest_clicked();
 
+    void on_ButtonQuit_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
