@@ -11,7 +11,7 @@ public:
     virtual ~IResultCounterService() =0;
 
     virtual int GetTotalResult() =0;
-    virtual void HandleAnsweredQuestion(Question question) =0;
+    virtual void HandleAnsweredQuestion(Question *question) =0;
 };
 
 #endif // IRESULTCOUNTERSERVICE_H

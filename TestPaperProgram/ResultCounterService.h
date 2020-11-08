@@ -6,15 +6,15 @@
 #include "IResultCounterService.h"
 using namespace std;
 
-class ResultCounterService : public IResultCounterService
+class ResultCounterService/* : public IResultCounterService*/
 {
 public:
     ResultCounterService();
     ~ResultCounterService();
 
-    virtual int GetTotalResult();
-    void HandleAnsweredQuestion(Question question);
-    void HandleCorrectAnsweredQuestion(Question question);
+    int GetTotalResult()/* override*/;
+    void HandleAnsweredQuestion(Question *question)/* override*/;
+    void HandleCorrectAnsweredQuestion(Question *question);
 
 private:
     double mTotalResult;

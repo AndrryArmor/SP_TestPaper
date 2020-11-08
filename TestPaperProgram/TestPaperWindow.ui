@@ -149,7 +149,8 @@
      </font>
     </property>
     <property name="text">
-     <string>На головну</string>
+     <string>Повернутись
+назад</string>
     </property>
    </widget>
    <widget class="QLabel" name="label1stAnswer">

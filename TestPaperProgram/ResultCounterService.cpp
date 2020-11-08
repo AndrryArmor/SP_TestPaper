@@ -14,9 +14,9 @@ int ResultCounterService::GetTotalResult()
     return this->mTotalResult;
 }
 
-void ResultCounterService::HandleAnsweredQuestion(Question question)
+void ResultCounterService::HandleAnsweredQuestion(Question *question)
 {
-    for(Answer answer : question.getAllAnswers())
+    for(Answer answer : question->getAllAnswers())
     {
         if(answer.getAnswerState()== AnswerState::Correct)
         {
@@ -25,13 +25,13 @@ void ResultCounterService::HandleAnsweredQuestion(Question question)
     }
 }
 
-void ResultCounterService::HandleCorrectAnsweredQuestion(Question question)
+void ResultCounterService::HandleCorrectAnsweredQuestion(Question *question)
 {
     //move to question
-    if(question.getQuestionType()== QuestionType::MultiplyChoices)
+    if(question->getQuestionType()== QuestionType::MultiplyChoices)
     {
         int countOfCorrectAnswers =0;
-        for(Answer answer : question.getAllAnswers())
+        for(Answer answer : question->getAllAnswers())
         {
             if(answer.getAnswerState()==AnswerState::Correct)
             {

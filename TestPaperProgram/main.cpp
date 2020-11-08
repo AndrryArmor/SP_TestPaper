@@ -1,17 +1,19 @@
-#include "MainWindow.h"
 #include <QApplication>
 #include <iostream>
+#include "MainWindow.h"
 #include "Game.h"
+#include "Presenter.h"
+#include "ResultCounterService.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow mainWindow;
-    mainWindow.show();
+    //ResultCounterService *service = new ResultCounterService();
+    //Game *game = new Game();
+    //game->StartGame();
+    Presenter *presenter = new Presenter(&mainWindow);
+
+    mainWindow.setVisible(true);
     return a.exec();
-
-    Game * game = new Game();
-    game->StartGame();
-
-    return 0;
 }

@@ -12,6 +12,7 @@ SOURCES += \
     Answer.cpp \
     Game.cpp \
     MainWindow.cpp \
+    Presenter.cpp \
     Question.cpp \
     Quiz.cpp \
     ResultCounterService.cpp \
@@ -26,6 +27,7 @@ HEADERS += \
     IQuizBuilder.h \
     IResultCounterService.h \
     MainWindow.h \
+    Presenter.h \
     Question.h \
     Quiz.h \
     ResultCounterService.h \
@@ -34,7 +36,6 @@ HEADERS += \
     Tutor.h
 
 FORMS += \
-    MainWindow.ui \
     MainWindow.ui \
     TestPaperWindow.ui
 
