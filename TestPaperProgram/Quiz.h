@@ -12,13 +12,13 @@ public:
     Quiz();
     ~Quiz();
 
-    list<Question> getAllQuestions();
+    list<Question *> getAllQuestions();
     void setQuizName(string quizName);
     string  getQuizName();
     void addQuestionToList(Question question);
 
 private:
-    list<Question> mQuestions;
+    list<Question *> mQuestions;
     string mQuizName;
 };
 

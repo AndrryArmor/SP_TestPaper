@@ -4,6 +4,7 @@
 #include "Question.h"
 #include "Quiz.h"
 #include <QMainWindow>
+#include <QRadioButton>
 #include <map>
 using namespace std;
 
@@ -17,7 +18,7 @@ public:
     explicit TestingWindow(QWidget *parent = nullptr);
     ~TestingWindow();
 
-    void setTestPaper(Quiz *quiz);
+    void setTest(Quiz *quiz);
     void showTestResult(float points);
 
 signals:
@@ -32,7 +33,11 @@ private:
     Ui::TestingWindow *ui;
     Quiz *_quiz;
     Question *_currentQuestion;
+    int _currentQuestionNumber;
     map<Question *, Answer *> *_userAnswers;
+
+    void setQuestionProgress(int currentQuestion, int questionCount);
+    void setAnswer(QRadioButton *radioButton, QString answer);
 };
 
 #endif // TESTINGWINDOW_H

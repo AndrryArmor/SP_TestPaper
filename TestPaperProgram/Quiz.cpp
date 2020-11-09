@@ -15,10 +15,10 @@ Quiz::~Quiz()
 
 void Quiz::addQuestionToList(Question question)
 {
-    mQuestions.push_back(question);
+    mQuestions.push_back(&question);
 };
 
-list<Question> Quiz::getAllQuestions()
+list<Question *> Quiz::getAllQuestions()
 {
     return mQuestions;
 };

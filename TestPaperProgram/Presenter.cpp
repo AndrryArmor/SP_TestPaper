@@ -1,5 +1,6 @@
 #include "Presenter.h"
 #include "ResultCounterService.h"
+#include "TestQuizBuilder.h"
 
 Presenter::Presenter(MainWindow *mainWindow,
                      ResultCounterService *resultCounterService,
@@ -17,6 +18,8 @@ void Presenter::on_TestStarted()
 {
     _testingWindow = new TestingWindow(_mainWindow);
     QObject::connect(_testingWindow, &TestingWindow::testFinished, this, &Presenter::on_TestFinished);
+
+
 
     _mainWindow->setHidden(true);
     _testingWindow->setVisible(true);
