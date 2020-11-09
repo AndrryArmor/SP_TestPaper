@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>320</width>
-    <height>420</height>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Програма для тестування</string>
+   <string>Додаток SmarTest</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="ButtonStartTest">
@@ -51,17 +51,6 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>320</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

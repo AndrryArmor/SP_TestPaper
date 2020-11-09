@@ -1,25 +1,25 @@
-#include "ui_TestPaperWindow.h"
-#include "TestPaperWindow.h"
+#include "TestingWindow.h"
+#include "ui_TestingWindow.h"
 #include <QMessageBox>
 
-TestPaperWindow::TestPaperWindow(QWidget *parent) :
+TestingWindow::TestingWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::TestPaperWindow)
+    ui(new Ui::TestingWindow)
 {
     ui->setupUi(this);
 }
 
-TestPaperWindow::~TestPaperWindow()
+TestingWindow::~TestingWindow()
 {
     delete ui;
 }
 
-void TestPaperWindow::setTestPaper(Quiz *quiz)
+void TestingWindow::setTestPaper(Quiz *quiz)
 {
     _quiz = quiz;
 }
 
-void TestPaperWindow::showTestResult(float points)
+void TestingWindow::showTestResult(float points)
 {
     QString resultMessageTitle = "Результат";
     QString resultMessageDescription = "Кількість набраних балів: " + QString::number(points);
@@ -31,20 +31,20 @@ void TestPaperWindow::showTestResult(float points)
     resultMessage->setVisible(true);
 }
 
-void TestPaperWindow::on_buttonToMain_clicked()
+void TestingWindow::on_ButtonGoBack_clicked()
 {
     ((QWidget *)parent())->setVisible(true);
     this->destroy();
 }
 
-void TestPaperWindow::on_buttonNext_clicked()
+void TestingWindow::on_ButtonNext_clicked()
 {
 
 }
 
-void TestPaperWindow::on_buttonFinishTest_clicked()
+void TestingWindow::on_ButtonFinishTest_clicked()
 {
     emit testFinished(_userAnswers);
-    ui->buttonNext->setEnabled(false);
-    ui->buttonFinishTest->setEnabled(false);
+    ui->ButtonNext->setEnabled(false);
+    ui->ButtonFinishTest->setEnabled(false);
 }

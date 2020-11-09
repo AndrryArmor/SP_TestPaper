@@ -16,8 +16,8 @@ SOURCES += \
     Question.cpp \
     Quiz.cpp \
     ResultCounterService.cpp \
-    TestPaperWindow.cpp \
     TestQuizBuilder.cpp \
+    TestingWindow.cpp \
     Tutor.cpp \
     main.cpp
 
@@ -31,13 +31,13 @@ HEADERS += \
     Question.h \
     Quiz.h \
     ResultCounterService.h \
-    TestPaperWindow.h \
     TestQuizBuilder.h \
+    TestingWindow.h \
     Tutor.h
 
 FORMS += \
     MainWindow.ui \
-    TestPaperWindow.ui
+    TestingWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
