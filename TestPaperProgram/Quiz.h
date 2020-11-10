@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <QVector>
 #include "Question.h"
 using namespace std;
 
@@ -12,13 +13,13 @@ public:
     Quiz();
     ~Quiz();
 
-    list<Question *> getAllQuestions();
+    QVector<Question *> getAllQuestions();
     void setQuizName(string quizName);
     string  getQuizName();
-    void addQuestionToList(Question question);
+    void addQuestionToList(Question* question);
 
 private:
-    list<Question *> mQuestions;
+    QVector<Question *> mQuestions;
     string mQuizName;
 };
 

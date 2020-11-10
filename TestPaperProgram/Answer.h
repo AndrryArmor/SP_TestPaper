@@ -2,6 +2,7 @@
 #define ANSWER_H
 
 #include <string>
+#include <QString>
 using namespace std;
 
 enum AnswerState 
@@ -16,14 +17,14 @@ public:
     Answer();
     ~Answer();
 
-    void setAnswerText(string answerText);
+    void setAnswerText(QString answerText);
     void setAnswerState(AnswerState answerState);
-    string getAnswerText();
+    QString getAnswerText();
     AnswerState getAnswerState();
 
 private:
     AnswerState mAnswerState;
-    string mAnswerText;
+    QString mAnswerText;
 };
 
 #endif // ANSWER_H

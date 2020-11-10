@@ -13,12 +13,12 @@ Quiz::~Quiz()
     //nothing much to do on terms of cleanup
 }
 
-void Quiz::addQuestionToList(Question question)
+void Quiz::addQuestionToList(Question* question)
 {
-    mQuestions.push_back(&question);
+    mQuestions.push_back(question);
 };
 
-list<Question *> Quiz::getAllQuestions()
+QVector<Question *> Quiz::getAllQuestions()
 {
     return mQuestions;
 };

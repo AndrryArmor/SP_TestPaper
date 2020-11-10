@@ -11,7 +11,7 @@ class IQuizBuilder
 public:
     virtual ~IQuizBuilder() =0;
     virtual void SetQuizName(string quizName) =0;
-    virtual void AddQuestion(Question question) =0;
+    virtual void AddQuestion(Question* question) =0;
     virtual void Reset() =0;
     virtual Quiz* GetQuiz() =0;
 };

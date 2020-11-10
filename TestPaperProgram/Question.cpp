@@ -27,12 +27,12 @@ void Question::setQuestionType(QuestionType questionType)
     mQuestionType = questionType;
 }
 
-void Question::addAnswerToList(Answer answer)
+void Question::addAnswerToList(Answer* answer)
 {
     mAnswers.push_back(answer);
 };
 
-list<Answer> Question::getAllAnswers()
+QVector<Answer*> Question::getAllAnswers()
 {
     return mAnswers;
 };

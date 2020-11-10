@@ -1,5 +1,6 @@
 //Answer.cpp
 #include <iostream>
+#include <QString>
 #include "Answer.h"
 using namespace std;
 
@@ -14,7 +15,7 @@ Answer::~Answer()
     //nothing much to do on terms of cleanup
 }
 
-void Answer::setAnswerText(string answerText)
+void Answer::setAnswerText(QString answerText)
 {
     mAnswerText = answerText;
 };
@@ -24,7 +25,7 @@ void Answer::setAnswerState(AnswerState answerState)
     mAnswerState = answerState;
 };
 
-string Answer::getAnswerText()
+QString Answer::getAnswerText()
 {
     return mAnswerText;
 };

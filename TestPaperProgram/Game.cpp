@@ -24,7 +24,7 @@ void Game::BuildQuiz(Tutor& tutor)
 {
     /*IQuizBuilder* builder = new TestQuizBuilder();
     tutor.set_builder(builder);
-    //tutor.BuildShortAnswerQuiz(string quizName, list<Question> questions);
+    //tutor.BuildShortAnswerQuiz(string quizName, QVector<Question> questions);
     
     Quiz* p= builder->GetQuiz();
     this->AddQuizToList(p);
@@ -60,7 +60,7 @@ void Game::AddQuizToList(Quiz* quiz)
     mQuizes.push_back(quiz);
 }
 
-Quiz* Game::getRandomQuiz(list<Quiz*> quizes)
+Quiz* Game::getRandomQuiz(QVector<Quiz*> quizes)
 {
     /*random_device seed ;
     // generator

@@ -14,7 +14,7 @@ public:
     ~TestQuizBuilder();
 
     void SetQuizName(string quizName);
-    void AddQuestion(Question question);
+    void AddQuestion(Question* question);
     void Reset();
     Quiz* GetQuiz();
 

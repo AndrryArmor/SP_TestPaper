@@ -2,7 +2,7 @@
 #define TUTOR_H
 
 #include <string>
-#include <list>
+#include <QVector>
 #include "IQuizBuilder.h"
 #include "Question.h"
 using namespace std;
@@ -14,7 +14,7 @@ public:
     ~Tutor();
 
     void set_builder(IQuizBuilder* builder);
-    void BuildShortAnswerQuiz(string quizName, list<Question> questions);
+    void BuildShortAnswerQuiz(string quizName, QVector<Question*> questions);
 
 private:
     IQuizBuilder* builder;

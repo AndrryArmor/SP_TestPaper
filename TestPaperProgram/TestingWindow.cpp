@@ -1,6 +1,7 @@
 #include "TestingWindow.h"
 #include "ui_TestingWindow.h"
 #include <QMessageBox>
+#include <QVector>
 #include <list>
 
 TestingWindow::TestingWindow(QWidget *parent) :
@@ -29,8 +30,7 @@ void TestingWindow::setQuestionProgress(int currentQuestion, int questionCount)
             QString::number(questionCount);
 }
 
-void TestingWindow::setAnswer(QRadioButton *radioButton, QString answer)
-{
+void TestingWindow::setAnswer(QRadioButton *radioButton, QString answer){
     int ROW_SIZE = 35;
     int rowNumber = 1;
     QStringList strings = answer.split(' ');
@@ -74,23 +74,23 @@ void TestingWindow::on_ButtonGoBack_clicked()
 
 void TestingWindow::on_ButtonNext_clicked()
 {
-    /*_currentQuestion = _quiz->getAllQuestions()[_currentQuestionNumber];
-    list<Answer> currentAnswers = _currentQuestion->getAllAnswers();
+    _currentQuestion = _quiz->getAllQuestions()[_currentQuestionNumber];
+    QVector<Answer*> currentAnswers = _currentQuestion->getAllAnswers();
     setQuestionProgress(_currentQuestionNumber, _quiz->getAllQuestions().size());
 
     int answerCount = currentAnswers.size();
     if (answerCount > 0)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[0].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[0]->getAnswerText());
     if (answerCount > 1)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[1].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[1]->getAnswerText());
     if (answerCount > 2)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[2].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[2]->getAnswerText());
     if (answerCount > 3)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[3].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[3]->getAnswerText());
 
     _currentQuestionNumber++;
     if (_currentQuestionNumber == (int)_currentQuestion->getAllAnswers().size())
-        ui->ButtonNext->setEnabled(false);*/
+        ui->ButtonNext->setEnabled(false);
 }
 
 void TestingWindow::on_ButtonFinishTest_clicked()

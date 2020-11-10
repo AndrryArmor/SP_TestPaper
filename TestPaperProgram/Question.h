@@ -2,7 +2,7 @@
 #define QUESTION_H
 
 #include <string>
-#include <list>
+#include <QVector>
 #include "Answer.h"
 using namespace std;
 
@@ -21,12 +21,12 @@ public:
     void setQuestionType(QuestionType questionType);
     string getQuestionText();
     QuestionType getQuestionType();
-    void addAnswerToList(Answer answer);
-    list<Answer> getAllAnswers();
+    void addAnswerToList(Answer* answer);
+    QVector<Answer*> getAllAnswers();
 
 private:
     QuestionType mQuestionType;
-    list<Answer> mAnswers;
+    QVector<Answer*> mAnswers;
     string mQuestion;
 };
 

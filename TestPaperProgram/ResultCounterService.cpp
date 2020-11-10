@@ -9,7 +9,7 @@
 ResultCounterService::~ResultCounterService()
 {}
 
-int ResultCounterService::GetTotalResult()
+float ResultCounterService::GetTotalResult()
 {
     return this->mTotalResult;
 }

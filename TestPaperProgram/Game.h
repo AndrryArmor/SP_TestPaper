@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include <string>
-#include <list>
+#include <QVector>
 #include "ResultCounterService.cpp"
 #include "Quiz.h"
 #include "Question.h"
@@ -22,10 +22,10 @@ public:
     void AddQuizToList(Quiz* quiz);
 
 private:
-    list<Quiz*> mQuizes;
+    QVector<Quiz*> mQuizes;
     Quiz* selectedQuiz;
     int currentAnswer;
-    Quiz* getRandomQuiz(list<Quiz*> quizes);
+    Quiz* getRandomQuiz(QVector<Quiz*> quizes);
     ResultCounterService* resultCounterService;
 };
 
