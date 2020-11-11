@@ -31,7 +31,7 @@ void Question::setQuestionType(QuestionType questionType)
     mQuestionType = questionType;
 };
 
-void Question::addAnswerToList(Answer answer)
+void Question::addAnswerToList(Answer *answer)
 {
     mAnswers.push_back(answer);
 };
@@ -41,7 +41,7 @@ QString  Question::getQuestionText()
     return mQuestionText;
 };
 
-QVector<Answer> Question::getAllAnswers()
+QVector<Answer*> Question::getAllAnswers()
 {
     return mAnswers;
 };
@@ -63,8 +63,8 @@ void Question::read(const QJsonObject &jsonObj)
     QJsonArray jsonArray  = jsonObj["answers"].toArray();
     foreach(QJsonValue jsonAnswer, jsonArray)
     {
-        Answer a;
-        a.read(jsonAnswer.toObject());
+        Answer* a;
+        a->read(jsonAnswer.toObject());
         this->addAnswerToList(a);
     };
 };
@@ -74,10 +74,10 @@ void Question::write(QJsonObject &jsonObj)
     jsonObj["question"] = this->mQuestionText;
     jsonObj["questionType"] = this->mQuestionType;
     QJsonArray jsonArray;
-    foreach (Answer a, getAllAnswers())
+    foreach (Answer* a , this->getAllAnswers())
     {
         QJsonObject jsonAnswer;
-        a.write(jsonAnswer);
+        a->write(jsonAnswer);
         jsonArray.append(jsonAnswer);
     }
     jsonObj["answers"] = jsonArray;

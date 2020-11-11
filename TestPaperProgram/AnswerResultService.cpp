@@ -15,9 +15,9 @@ int AnswerResultService::GetTotalResult()
 
 void AnswerResultService::HandleAnsweredQuestion(Question *question)
 {
-    for(Answer answer : question->getAllAnswers())
+    for(Answer* answer : question->getAllAnswers())
     {
-        if(answer.getAnswerState()== AnswerState::Correct)
+        if(answer->getAnswerState()== AnswerState::Correct)
         {
             HandleCorrectAnsweredQuestion(question);
         }
@@ -30,9 +30,9 @@ void AnswerResultService::HandleCorrectAnsweredQuestion(Question *question)
     if(question->getQuestionType()== QuestionType::MultiplyChoices)
     {
         int countOfCorrectAnswers =0;
-        for(Answer answer : question->getAllAnswers())
+        for(Answer* answer : question->getAllAnswers())
         {
-            if(answer.getAnswerState()==AnswerState::Correct)
+            if(answer->getAnswerState()==AnswerState::Correct)
             {
                 countOfCorrectAnswers++;
             }

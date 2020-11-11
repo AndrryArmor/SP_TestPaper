@@ -76,18 +76,18 @@ void TestingWindow::on_ButtonGoBack_clicked()
 void TestingWindow::on_ButtonNext_clicked()
 {
     _currentQuestion = _quiz->getAllQuestions()[_currentQuestionNumber];
-    QVector<Answer> currentAnswers = _currentQuestion->getAllAnswers();
+    QVector<Answer*> currentAnswers = _currentQuestion->getAllAnswers();
     setQuestionProgress(_currentQuestionNumber, _quiz->getAllQuestions().size());
 
     int answerCount = currentAnswers.size();
     if (answerCount > 0)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[0].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[0]->getAnswerText());
     if (answerCount > 1)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[1].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[1]->getAnswerText());
     if (answerCount > 2)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[2].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[2]->getAnswerText());
     if (answerCount > 3)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[3].getAnswerText());
+        setAnswer(ui->RadioButton1stAnswer, currentAnswers[3]->getAnswerText());
 
     _currentQuestionNumber++;
     if (_currentQuestionNumber == (int)_currentQuestion->getAllAnswers().size())

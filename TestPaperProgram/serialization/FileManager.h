@@ -11,8 +11,8 @@ class FileManager
  
 public:
 
-   QChar LoadFromFile(string filePath);
-   static void SaveToFile(QChar jsonObject,string filePath);
+   static QChar LoadFromFile(string filePath);
+   static void SaveToFile(const char* jsonObject,string filePath);
  
 private:
     FileManager();

@@ -13,10 +13,10 @@ void Tutor::set_builder(TestQuizBuilder* builder)
     this->builder=builder;
 }
 
-void Tutor::BuildShortAnswerQuiz(QString quizName, QVector<Question> questions)
+void Tutor::BuildShortAnswerQuiz(QString quizName, QVector<Question*> questions)
 {
     this->builder->SetQuizName(quizName);
-    for (Question question : questions) 
+    for (Question* question : questions)
     {
         this->builder->AddQuestion(question);
     }       

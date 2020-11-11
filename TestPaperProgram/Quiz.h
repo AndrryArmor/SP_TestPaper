@@ -18,7 +18,7 @@ public:
     QVector<Question *> getAllQuestions();
     void setQuizName(QString quizName);
     QString  getQuizName();
-    void addQuestionToList(Question question);
+    void addQuestionToList(Question* question);
     //serialization
 	void read(const QJsonObject &jsonObj);
     void write(QJsonObject &jsonObj) ;

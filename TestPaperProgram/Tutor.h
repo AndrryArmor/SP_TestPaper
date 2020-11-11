@@ -16,7 +16,7 @@ public:
     ~Tutor();
 
     void set_builder(TestQuizBuilder* builder);
-    void BuildShortAnswerQuiz(QString quizName,QVector<Question> questions);
+    void BuildShortAnswerQuiz(QString quizName,QVector<Question*> questions);
 
 private:
     TestQuizBuilder* builder;

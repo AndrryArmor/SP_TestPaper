@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void FileManager::SaveToFile(QChar jsonObject,string filePath)
+void FileManager::SaveToFile(const char* jsonObject,string filePath)
 {
     QString filename = QString::fromStdString(filePath);
     QFile file(filename);

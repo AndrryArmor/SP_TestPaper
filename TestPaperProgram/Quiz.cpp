@@ -14,9 +14,9 @@ Quiz::~Quiz()
     //nothing much to do on terms of cleanup
 }
 
-void Quiz::addQuestionToList(Question question)
+void Quiz::addQuestionToList(Question* question)
 {
-    mQuestions.push_back(&question);
+    mQuestions.push_back(question);
 };
 
 QVector<Question *> Quiz::getAllQuestions()
@@ -43,8 +43,8 @@ void Quiz::read(const QJsonObject &jsonObj)
     QJsonArray jsonArray = jsonObj["questions"].toArray();
     foreach(QJsonValue jsonAnswer, jsonArray)
     {
-        Question q;
-        q.read(jsonAnswer.toObject());
+        Question* q;
+        q->read(jsonAnswer.toObject());
         this->addQuestionToList(q);
     }
 }

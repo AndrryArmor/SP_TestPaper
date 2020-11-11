@@ -35,6 +35,8 @@ void Game::StartGame()
 {
     //std::seed_seq sseq(1,this->mQuizes.length());
     //QRandomGenerator generator(sseq);
+    //TODO refactor later just hard code now
+
     this->selectedQuiz = this->mQuizes[0];//TODO random number
 }
 

@@ -17,7 +17,7 @@ void TestQuizBuilder::Reset()
     this->quiz = new Quiz();
 }
 
-void TestQuizBuilder::AddQuestion(Question question)
+void TestQuizBuilder::AddQuestion(Question* question)
 {
     this->quiz->addQuestionToList(question);
 }
