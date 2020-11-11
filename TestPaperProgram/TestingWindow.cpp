@@ -4,6 +4,7 @@
 #include <QVector>
 #include <list>
 
+
 TestingWindow::TestingWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TestingWindow)
@@ -81,18 +82,22 @@ void TestingWindow::on_ButtonNext_clicked()
 
     int answerCount = currentAnswers.size();
     if (answerCount > 0)
-        setAnswer(ui->RadioButton1stAnswer, currentAnswers[0]->getAnswerText());
-    if (answerCount > 1)
+           ui->createFirstExclusiveGroup(currentAnswers);
+       // setAnswer(ui->RadioButton1stAnswer, currentAnswers[0]->getAnswerText());
+    /*if (answerCount > 1)
         setAnswer(ui->RadioButton1stAnswer, currentAnswers[1]->getAnswerText());
     if (answerCount > 2)
         setAnswer(ui->RadioButton1stAnswer, currentAnswers[2]->getAnswerText());
     if (answerCount > 3)
         setAnswer(ui->RadioButton1stAnswer, currentAnswers[3]->getAnswerText());
+        */
 
     _currentQuestionNumber++;
-    if (_currentQuestionNumber == (int)_currentQuestion->getAllAnswers().size())
+    if (_currentQuestionNumber == (int)_quiz->getAllQuestions().size())
         ui->ButtonNext->setEnabled(false);
 }
+
+
 
 void TestingWindow::on_ButtonFinishTest_clicked()
 {
@@ -100,3 +105,5 @@ void TestingWindow::on_ButtonFinishTest_clicked()
     ui->ButtonNext->setEnabled(false);
     ui->ButtonFinishTest->setEnabled(false);
 }
+
+

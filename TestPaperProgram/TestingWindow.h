@@ -6,6 +6,7 @@
 #include <QMainWindow>
 #include <QRadioButton>
 #include <map>
+#include <QGroupBox>
 using namespace std;
 
 namespace Ui {class TestingWindow;}
@@ -30,6 +31,7 @@ private slots:
     void on_ButtonFinishTest_clicked();
 
 private:
+
     Ui::TestingWindow *ui;
     Quiz *_quiz;
     Question *_currentQuestion;

@@ -3,6 +3,7 @@
 
 #include "MainWindow.h"
 #include "TestingWindow.h"
+#include "Game.h"
 #include "AnswerResultService.h"
 #include <QObject>
 
@@ -12,6 +13,7 @@ class Presenter : public QObject
 public:
     explicit Presenter(MainWindow *mainWindow,
                        AnswerResultService *answerResultService = nullptr,
+                       Game *game = nullptr,
                        QObject *parent = nullptr);
     ~Presenter();
     MainWindow *_mainWindow;
@@ -25,6 +27,7 @@ private slots:
 private:
     TestingWindow *_testingWindow;
     AnswerResultService *_answerResultService;
+    Game *_game;
 };
 
 #endif // PRESENTER_H

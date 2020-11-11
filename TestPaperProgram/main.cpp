@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     AnswerResultService *service = new AnswerResultService();
     Game *game = new Game();
     game->StartGame();
-    Presenter *presenter = new Presenter(&mainWindow);
+    Presenter *presenter = new Presenter(&mainWindow, service,game);
 
     mainWindow.setVisible(true);
     return a.exec();
