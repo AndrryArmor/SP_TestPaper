@@ -4,9 +4,6 @@ ResultCounterService::ResultCounterService()
 {
 }
 
-ResultCounterService::~ResultCounterService()
-{}
-
 float ResultCounterService::countResult(QMap<Question *, Answer *> *answers)
 {
     float result = 0.0;

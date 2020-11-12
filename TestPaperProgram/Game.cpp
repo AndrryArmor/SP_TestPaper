@@ -2,7 +2,7 @@
 #include <random>
 #include <vector>
 #include "Game.h"
-#include "IResultCounterService.h"
+#include "ResultCounterService.h"
 #include "TestQuizBuilder.cpp"
 #include "IQuizBuilder.h"
 #include "Tutor.h"

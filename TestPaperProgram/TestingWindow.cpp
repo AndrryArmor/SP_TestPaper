@@ -13,7 +13,7 @@ TestingWindow::TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent) :
     _mainWindow = mainWindow;
     _userAnswers = new QMap<Question *, Answer *>();
 
-    ui->LabelQuestionName->setText(_quiz->getQuizName());
+    setWindowTitle(_quiz->getQuizName());
     _questionIterator = quiz->getAllQuestions()->begin();
     _currentQuestionNumber = 1;
     updateView();
@@ -26,8 +26,8 @@ TestingWindow::~TestingWindow()
 
 void TestingWindow::updateView()
 {
-    //_currentQuestion = _quiz->getAllQuestions()[_currentQuestionNumber];
     QVector<Answer*> *currentAnswers = (*_questionIterator)->getAllAnswers();
+    ui->LabelQuestionName->setText((*_questionIterator)->getQuestionText());
     setQuestionProgress(_currentQuestionNumber, _quiz->getAllQuestions()->size());
     int answerCount = currentAnswers->size();
 

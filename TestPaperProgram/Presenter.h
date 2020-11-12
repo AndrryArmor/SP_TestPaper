@@ -13,10 +13,9 @@ class Presenter : public QObject
 public:
     explicit Presenter(MainWindow *mainWindow,
                        Game *game,
-                       ResultCounterService *resultCounterService = nullptr,
+                       ResultCounterService *resultCounterService,
                        QObject *parent = nullptr);
     ~Presenter();
-    MainWindow *_mainWindow;
 
 signals:
 
@@ -25,8 +24,9 @@ private slots:
     void on_TestFinished(QMap<Question *, Answer *> *_userAnswers);
 
 private:
-    Game *_game;
+    MainWindow *_mainWindow;
     TestingWindow *_testingWindow;
+    Game *_game;
     ResultCounterService *_resultCounterService;
 };
 

@@ -5,8 +5,7 @@
 using namespace std;
 
 Question::Question()
-{
-  
+{  
     //initializaing data memebers
     mQuestionType = QuestionType::ShortAnswer;
     mAnswers = new QVector<Answer *>();
@@ -17,7 +16,7 @@ Question::~Question()
     //nothing much to do on terms of cleanup
 }
 
-void Question::setQuestionText(string question)
+void Question::setQuestionText(QString question)
 {
     mQuestion = question;
 }
@@ -37,7 +36,7 @@ QVector<Answer*> *Question::getAllAnswers()
     return mAnswers;
 };
 
-string Question::getQuestionText()
+QString Question::getQuestionText()
 {
     return mQuestion;
 }
