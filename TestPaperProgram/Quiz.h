@@ -1,8 +1,7 @@
 #ifndef QUIZ_H
 #define QUIZ_H
 
-#include <string>
-#include <list>
+#include <QString>
 #include <QVector>
 #include "Question.h"
 using namespace std;
@@ -13,14 +12,14 @@ public:
     Quiz();
     ~Quiz();
 
-    QVector<Question *> getAllQuestions();
-    void setQuizName(string quizName);
-    string  getQuizName();
+    QVector<Question *> *getAllQuestions();
+    void setQuizName(QString quizName);
+    QString  getQuizName();
     void addQuestionToList(Question* question);
 
 private:
-    QVector<Question *> mQuestions;
-    string mQuizName;
+    QVector<Question *> *mQuestions;
+    QString mQuizName;
 };
 
 #endif // QUIZ_H

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <QVector>
-#include "IQuizBuilder.h"
+#include "TestQuizBuilder.h"
 #include "Question.h"
 using namespace std;
 
@@ -13,7 +13,7 @@ public:
     Tutor();
     ~Tutor();
 
-    void set_builder(IQuizBuilder* builder);
+    void set_builder(TestQuizBuilder* builder);
     void BuildShortAnswerQuiz(string quizName, QVector<Question*> questions);
 
 private:

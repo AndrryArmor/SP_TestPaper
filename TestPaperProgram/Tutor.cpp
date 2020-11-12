@@ -8,7 +8,7 @@ Tutor::~Tutor()
 {
 }
 
-void Tutor::set_builder(IQuizBuilder* builder)
+void Tutor::set_builder(TestQuizBuilder* builder)
 {
     this->builder=builder;
 }
@@ -19,6 +19,6 @@ void Tutor::BuildShortAnswerQuiz(string quizName, QVector<Question*> questions)
     for (Question* question : questions)
     {
         this->builder->AddQuestion(question);
-    }       
+    }
 }
 

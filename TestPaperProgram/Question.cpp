@@ -9,7 +9,7 @@ Question::Question()
   
     //initializaing data memebers
     mQuestionType = QuestionType::ShortAnswer;
-    mAnswers = {};
+    mAnswers = new QVector<Answer *>();
 }
 
 Question::~Question()
@@ -29,10 +29,10 @@ void Question::setQuestionType(QuestionType questionType)
 
 void Question::addAnswerToList(Answer* answer)
 {
-    mAnswers.push_back(answer);
+    mAnswers->push_back(answer);
 };
 
-QVector<Answer*> Question::getAllAnswers()
+QVector<Answer*> *Question::getAllAnswers()
 {
     return mAnswers;
 };

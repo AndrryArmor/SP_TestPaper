@@ -1,7 +1,7 @@
 #ifndef TESTQUIZBUILDER_H
 #define TESTQUIZBUILDER_H
 
-#include <string>
+#include <QString>
 #include "Quiz.h"
 #include "Question.h"
 #include "IQuizBuilder.h"
@@ -13,7 +13,7 @@ public:
     TestQuizBuilder();
     ~TestQuizBuilder();
 
-    void SetQuizName(string quizName);
+    void SetQuizName(QString quizName);
     void AddQuestion(Question* question);
     void Reset();
     Quiz* GetQuiz();

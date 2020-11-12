@@ -20,6 +20,7 @@ public:
     void NextQuestion(Question question);
     void PreviusQuestion(Question question);
     void AddQuizToList(Quiz* quiz);
+    Quiz* GetTestQuizesData();
 
 private:
     QVector<Quiz*> mQuizes;

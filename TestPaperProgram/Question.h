@@ -22,11 +22,11 @@ public:
     string getQuestionText();
     QuestionType getQuestionType();
     void addAnswerToList(Answer* answer);
-    QVector<Answer*> getAllAnswers();
+    QVector<Answer*> *getAllAnswers();
 
 private:
     QuestionType mQuestionType;
-    QVector<Answer*> mAnswers;
+    QVector<Answer*> *mAnswers;
     string mQuestion;
 };
 

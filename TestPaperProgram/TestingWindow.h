@@ -5,7 +5,7 @@
 #include "Quiz.h"
 #include <QMainWindow>
 #include <QRadioButton>
-#include <map>
+#include <QMap>
 using namespace std;
 
 namespace Ui {class TestingWindow;}
@@ -15,14 +15,14 @@ class TestingWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit TestingWindow(QWidget *parent = nullptr);
+    explicit TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent = nullptr);
     ~TestingWindow();
-
-    void setTest(Quiz *quiz);
+    void updateView();
+    Answer *readUserAnswer();
     void showTestResult(float points);
 
 signals:
-    void testFinished(map<Question *, Answer *> *_userAnswers);
+    void testFinished(QMap<Question *, Answer *> *_userAnswers);
 
 private slots:
     void on_ButtonGoBack_clicked();
@@ -31,10 +31,12 @@ private slots:
 
 private:
     Ui::TestingWindow *ui;
+    QWidget *_mainWindow;
     Quiz *_quiz;
+    QVector<Question *>::Iterator _questionIterator;
     Question *_currentQuestion;
     int _currentQuestionNumber;
-    map<Question *, Answer *> *_userAnswers;
+    QMap<Question *, Answer *> *_userAnswers;
 
     void setQuestionProgress(int currentQuestion, int questionCount);
     void setAnswer(QRadioButton *radioButton, QString answer);

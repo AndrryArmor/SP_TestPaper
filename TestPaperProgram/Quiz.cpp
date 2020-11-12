@@ -5,7 +5,7 @@ using namespace std;
 Quiz::Quiz()
 {
     //initializaing data memebers
-     mQuestions = {};
+     mQuestions = new QVector<Question *>;
 }
 
 Quiz::~Quiz()
@@ -15,20 +15,20 @@ Quiz::~Quiz()
 
 void Quiz::addQuestionToList(Question* question)
 {
-    mQuestions.push_back(question);
+    mQuestions->push_back(question);
 };
 
-QVector<Question *> Quiz::getAllQuestions()
+QVector<Question *> *Quiz::getAllQuestions()
 {
     return mQuestions;
 };
 
-void  Quiz::setQuizName(string quizName)
+void Quiz::setQuizName(QString quizName)
 {
     mQuizName = quizName;
 };
 
-string   Quiz::getQuizName()
+QString Quiz::getQuizName()
 {
     return mQuizName;
 };

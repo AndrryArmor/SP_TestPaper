@@ -22,7 +22,7 @@ void TestQuizBuilder::AddQuestion(Question* question)
     this->quiz->addQuestionToList(question);
 }
 
-void TestQuizBuilder::SetQuizName(string quizName)
+void TestQuizBuilder::SetQuizName(QString quizName)
 {
     this->quiz->setQuizName(quizName);
 }
