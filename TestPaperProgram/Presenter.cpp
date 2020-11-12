@@ -27,9 +27,8 @@ void Presenter::on_TestStarted()
     _mainWindow->setHidden(true);
 }
 
-void Presenter::on_TestFinished(QMap<Question *, Answer *> *_userAnswers)
+void Presenter::on_TestFinished(QMap<Question *, Answer *> *userAnswers)
 {
-    // виклик сервісу перевірки відповіді (відповідь повинна бути дробовою!)
-    //int result = _resultCounterService->GetTotalResult();
-    _testingWindow->showTestResult(_userAnswers->size());
+    float result = _resultCounterService->countResult(userAnswers);
+    _testingWindow->showTestResult(result);
 }

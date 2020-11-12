@@ -219,9 +219,9 @@ sfdsvcx</string>
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>12</y>
+      <y>2</y>
       <width>311</width>
-      <height>21</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">

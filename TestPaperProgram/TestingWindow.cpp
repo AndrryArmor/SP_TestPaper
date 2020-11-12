@@ -11,7 +11,7 @@ TestingWindow::TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent) :
     ui->setupUi(this);
     _quiz = quiz;
     _mainWindow = mainWindow;
-    _userAnswers = new QMap<Question *, Answer *>();    
+    _userAnswers = new QMap<Question *, Answer *>();
 
     ui->LabelQuestionName->setText(_quiz->getQuizName());
     _questionIterator = quiz->getAllQuestions()->begin();
@@ -31,10 +31,15 @@ void TestingWindow::updateView()
     setQuestionProgress(_currentQuestionNumber, _quiz->getAllQuestions()->size());
     int answerCount = currentAnswers->size();
 
-    ui->RadioButton1stAnswer->setChecked(false);
-    ui->RadioButton2ndAnswer->setChecked(false);
-    ui->RadioButton3rdAnswer->setChecked(false);
-    ui->RadioButton4thAnswer->setChecked(false);
+    ui->RadioButton1stAnswer->setCheckable(false);
+    ui->RadioButton2ndAnswer->setCheckable(false);
+    ui->RadioButton3rdAnswer->setCheckable(false);
+    ui->RadioButton4thAnswer->setCheckable(false);
+
+    ui->RadioButton1stAnswer->setCheckable(true);
+    ui->RadioButton2ndAnswer->setCheckable(true);
+    ui->RadioButton3rdAnswer->setCheckable(true);
+    ui->RadioButton4thAnswer->setCheckable(true);
 
     ui->RadioButton1stAnswer->setHidden(true);
     ui->RadioButton2ndAnswer->setHidden(true);
@@ -113,7 +118,7 @@ void TestingWindow::setAnswer(QRadioButton *radioButton, QString answer)
 void TestingWindow::showTestResult(float points)
 {
     QString resultMessageTitle = "Результат";
-    QString resultMessageDescription = "Кількість набраних балів: " + QString::number(points);
+    QString resultMessageDescription = "Кількість набраних балів: " + QString::number(points, 'g', 2);
     QMessageBox *resultMessage = new class QMessageBox(QMessageBox::Icon::Information,
                                                        resultMessageTitle,
                                                        resultMessageDescription,

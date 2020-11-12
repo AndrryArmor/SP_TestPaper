@@ -3,7 +3,7 @@
 
 #include <string>
 #include <QVector>
-#include "ResultCounterService.cpp"
+#include "ResultCounterService.h"
 #include "Quiz.h"
 #include "Question.h"
 #include "Tutor.h"

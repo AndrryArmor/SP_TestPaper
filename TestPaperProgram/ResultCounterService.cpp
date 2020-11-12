@@ -1,47 +1,19 @@
-#include "Question.h"
 #include "ResultCounterService.h"
 
-/*ResultCounterService::ResultCounterService()
+ResultCounterService::ResultCounterService()
 {
-    mTotalResult = 0;
 }
 
 ResultCounterService::~ResultCounterService()
 {}
 
-float ResultCounterService::GetTotalResult()
+float ResultCounterService::countResult(QMap<Question *, Answer *> *answers)
 {
-    return this->mTotalResult;
+    float result = 0.0;
+    for (auto answer : *answers)
+    {
+        if (answer->getAnswerState() == AnswerState::Correct)
+            result++;
+    }
+    return result;
 }
-
-void ResultCounterService::HandleAnsweredQuestion(Question *question)
-{
-    for(Answer answer : question->getAllAnswers())
-    {
-        if(answer.getAnswerState()== AnswerState::Correct)
-        {
-            HandleCorrectAnsweredQuestion(question);
-        }
-    }
-}
-
-void ResultCounterService::HandleCorrectAnsweredQuestion(Question *question)
-{
-    //move to question
-    if(question->getQuestionType()== QuestionType::MultiplyChoices)
-    {
-        int countOfCorrectAnswers =0;
-        for(Answer answer : question->getAllAnswers())
-        {
-            if(answer.getAnswerState()==AnswerState::Correct)
-            {
-                countOfCorrectAnswers++;
-            }
-        }
-        this->mTotalResult+=(double)1/countOfCorrectAnswers;
-    }
-    else
-    {
-        this->mTotalResult++;
-    }
-}*/

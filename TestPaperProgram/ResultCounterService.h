@@ -1,23 +1,17 @@
 #ifndef RESULTCOUNTERSERVICE_H
 #define RESULTCOUNTERSERVICE_H
 
-#include <iostream>
 #include "Question.h"
-#include "IResultCounterService.h"
-using namespace std;
+#include "Answer.h"
+#include <QMap>
 
-class ResultCounterService/* : public IResultCounterService*/
+class ResultCounterService
 {
 public:
     ResultCounterService();
     ~ResultCounterService();
 
-    int GetTotalResult()/* override*/;
-    void HandleAnsweredQuestion(Question *question)/* override*/;
-    void HandleCorrectAnsweredQuestion(Question *question);
-
-private:
-    double mTotalResult;
+    float countResult(QMap<Question *, Answer *> *answers);
 };
 
 #endif // RESULTCOUNTERSERVICE_H
