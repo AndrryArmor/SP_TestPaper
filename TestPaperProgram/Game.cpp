@@ -79,7 +79,11 @@ Quiz* Game::GetTestQuizesData()
     Answer* answer1= new Answer();
     answer1->setAnswerText("2");
     answer1->setAnswerState(AnswerState::Correct);
+    Answer* answer12= new Answer();
+    answer12->setAnswerText("3");
+    answer12->setAnswerState(AnswerState::InCorrect);
     question1->addAnswerToList(answer1);
+    question1->addAnswerToList(answer12);
 
     //question 2
     Question* question2 =new Question();
@@ -88,7 +92,15 @@ Quiz* Game::GetTestQuizesData()
     Answer* answer2= new Answer();
     answer2->setAnswerText("3");
     answer2->setAnswerState(AnswerState::Correct);
+    Answer* answer22= new Answer();
+    answer22->setAnswerText("6");
+    answer22->setAnswerState(AnswerState::InCorrect);
+    Answer* answer23= new Answer();
+    answer23->setAnswerText("103");
+    answer23->setAnswerState(AnswerState::InCorrect);
     question2->addAnswerToList(answer2);
+    question2->addAnswerToList(answer22);
+    question2->addAnswerToList(answer23);
 
     //question 3
 

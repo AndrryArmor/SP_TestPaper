@@ -17,7 +17,7 @@ public:
         float result = 0.0;
         for (auto answer : *answers)
         {
-            if (answer->getAnswerState() == AnswerState::Correct)
+            if (answer != nullptr && answer->getAnswerState() == AnswerState::Correct)
                 result++;
         }
         return result;
