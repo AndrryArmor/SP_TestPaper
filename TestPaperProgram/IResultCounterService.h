@@ -8,9 +8,9 @@ using namespace std;
 class IResultCounterService
 {
 public:
-    virtual ~IResultCounterService() =0;
+    virtual ~IResultCounterService() {};
 
-    virtual float countResult(QMap<Question *, Answer *> *answers) =0;
+    virtual float countResult(QMap<Question *, Answer *> *answers) {};
     //virtual void HandleAnsweredQuestion(Question *question) =0;
 };
 

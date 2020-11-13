@@ -3,7 +3,7 @@
 
 #include "MainWindow.h"
 #include "TestingWindow.h"
-#include "ResultCounterService.h"
+#include "IResultCounterService.h"
 #include "Game.h"
 #include <QObject>
 
@@ -13,7 +13,7 @@ class Presenter : public QObject
 public:
     explicit Presenter(MainWindow *mainWindow,
                        Game *game,
-                       ResultCounterService *resultCounterService,
+                       IResultCounterService *resultCounterService,
                        QObject *parent = nullptr);
     ~Presenter();
 
@@ -27,7 +27,7 @@ private:
     MainWindow *_mainWindow;
     TestingWindow *_testingWindow;
     Game *_game;
-    ResultCounterService *_resultCounterService;
+    IResultCounterService *_resultCounterService;
 };
 
 #endif // PRESENTER_H

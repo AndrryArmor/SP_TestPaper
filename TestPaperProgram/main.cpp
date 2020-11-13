@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow mainWindow;
-    ResultCounterService *service = new ResultCounterService();
+    IResultCounterService *service = new ResultCounterService();
     Game *game = new Game();
     game->StartGame();
     Presenter *presenter = new Presenter(&mainWindow, game, service);

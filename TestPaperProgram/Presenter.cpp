@@ -1,10 +1,10 @@
 #include "Presenter.h"
-#include "ResultCounterService.h"
+#include "IResultCounterService.h"
 #include "TestQuizBuilder.h"
 
 Presenter::Presenter(MainWindow *mainWindow,
                      Game *game,
-                     ResultCounterService *resultCounterService,
+                     IResultCounterService *resultCounterService,
                      QObject *parent) : QObject(parent)
 {
     _game = game;
