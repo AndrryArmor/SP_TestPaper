@@ -15,7 +15,7 @@ public:
     float countResult(QuizAnswer *quizAnswer) override
     {
         float result = 0.0;
-        for (auto answer : *quizAnswer->userAnswers)
+        for (auto answer : *(quizAnswer->userAnswers))
         {
             if (answer != nullptr && answer->getAnswerState() == AnswerState::Correct)
                 result++;

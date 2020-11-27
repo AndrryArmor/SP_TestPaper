@@ -11,7 +11,7 @@ TestingWindow::TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent) :
     ui->setupUi(this);
     _quiz = quiz;
     _mainWindow = mainWindow;
-    _userAnswers = new QMap<Question *, Answer *>();
+    //_userAnswers = new QMap<Question *, Answer *>();
     _quizAnswer = new QuizAnswer();
 
     setWindowTitle(_quiz->getQuizName());
@@ -136,7 +136,7 @@ void TestingWindow::on_ButtonGoBack_clicked()
 
 void TestingWindow::on_ButtonNext_clicked()
 {
-    _userAnswers->insert((*_questionIterator), readUserAnswer());
+    //_userAnswers->insert((*_questionIterator), readUserAnswer());
     _quizAnswer->userAnswers->insert((*_questionIterator), readUserAnswer());
     _questionIterator++;
     _currentQuestionNumber++;
@@ -145,7 +145,7 @@ void TestingWindow::on_ButtonNext_clicked()
 
 void TestingWindow::on_ButtonFinishTest_clicked()
 {
-    _userAnswers->insert((*_questionIterator), readUserAnswer());    
+    //_userAnswers->insert((*_questionIterator), readUserAnswer());
     _quizAnswer->userAnswers->insert((*_questionIterator), readUserAnswer());
 
     //emit testFinished(_userAnswers);

@@ -28,6 +28,7 @@ private:
     TestingWindow *_testingWindow;
     Game *_game;
     IResultCounterService *_resultCounterService;
+    QString _appDir;
 };
 
 #endif // PRESENTER_H

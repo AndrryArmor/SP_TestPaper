@@ -38,7 +38,7 @@ private:
     QVector<Question *>::Iterator _questionIterator;
     Question *_currentQuestion;
     int _currentQuestionNumber;
-    QMap<Question *, Answer *> *_userAnswers;
+    //QMap<Question *, Answer *> *_userAnswers;
     QuizAnswer *_quizAnswer;
 
     void setQuestionProgress(int currentQuestion, int questionCount);
