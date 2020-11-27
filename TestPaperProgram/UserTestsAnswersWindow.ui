@@ -48,7 +48,7 @@
 назад</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="ListWidgetTestsResults">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -64,7 +64,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="TableWidgetTestAnswers">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -80,7 +80,7 @@
      </sizepolicy>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="LabelTestResult">
     <property name="geometry">
      <rect>
       <x>320</x>

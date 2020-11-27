@@ -13,14 +13,14 @@ using namespace std;
 
 void TestQuizSerialization::testSerializeAndDeserializeQuestion()
 {
-   Quiz quiz = GetTestQuizesData();
+   Quiz *quiz = GetTestQuizesData();
    Serialize(quiz);
-   Quiz  deserializedQuiz = Deserialize();
-   QString name = deserializedQuiz.getQuizName();
+   Quiz *deserializedQuiz = Deserialize();
+   QString name = deserializedQuiz->getQuizName();
 }
 
 
-Quiz TestQuizSerialization::GetTestQuizesData()
+Quiz *TestQuizSerialization::GetTestQuizesData()
 {
     Question* question1 = new Question();
     question1->setQuestionText("1+1=?");
@@ -57,32 +57,31 @@ Quiz TestQuizSerialization::GetTestQuizesData()
     answer5->setAnswerState(AnswerState::InCorrect);
     question3->addAnswerToList(answer5);
 
-    Quiz quiz1 ;
-    quiz1.setQuizName("First quiz for text");
-    quiz1.addQuestionToList(question1);
-    quiz1.addQuestionToList(question2);
-    quiz1.addQuestionToList(question3);
+    Quiz *quiz1 ;
+    quiz1->setQuizName("First quiz for text");
+    quiz1->addQuestionToList(question1);
+    quiz1->addQuestionToList(question2);
+    quiz1->addQuestionToList(question3);
 
    return quiz1;
 }
 
-void TestQuizSerialization::Serialize(Quiz quiz)
+void TestQuizSerialization::Serialize(Quiz *quiz)
 {
-    QString json = QuizJsonSerializer::serialize(quiz);
+    QString json = QuizJsonSerializer::serialize(*quiz);
     FileManager filemanager ;
     filemanager.SaveToFile(json.toLatin1().data(),"C:/test/quiz.json");
     qDebug() << "Successfully stored";
 }
 
-Quiz TestQuizSerialization:: Deserialize()
+Quiz *TestQuizSerialization:: Deserialize()
 {
-
-    Quiz parsedQuiz;
+    Quiz *parsedQuiz = new Quiz();
     FileManager filemanager ;
     QString quizInString = filemanager.LoadFromFile("C:/test/quiz.json");
-    QuizJsonSerializer::parse(quizInString ,  parsedQuiz);
-    qDebug() <<  "Quiz name is " <<parsedQuiz.getQuizName();
-    qDebug() <<  "Questionfirst text " <<parsedQuiz.getAllQuestions();
+    QuizJsonSerializer::parse(quizInString , parsedQuiz);
+    qDebug() <<  "Quiz name is " <<parsedQuiz->getQuizName();
+    qDebug() <<  "Questionfirst text " <<parsedQuiz->getAllQuestions();
     return parsedQuiz;
 }
 

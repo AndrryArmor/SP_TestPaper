@@ -12,10 +12,10 @@ public:
  static void testSerializeAndDeserializeQuestion();
 
 private:
-   static Quiz GetTestQuizesData();
+   static Quiz *GetTestQuizesData();
 
-   static void Serialize(Quiz quiz);
+   static void Serialize(Quiz *quiz);
 
-    static Quiz Deserialize();
+   static Quiz *Deserialize();
 };
 #endif // TESTQUIZSERIALIZATION_H

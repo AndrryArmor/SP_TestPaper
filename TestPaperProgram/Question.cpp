@@ -68,16 +68,15 @@ class MultipleAnswerQuestion : public Question
 //serialization
 void Question::read(const QJsonObject &jsonObj)
 {
-
     this->setQuestionText(jsonObj["question"].toString());
     this->setQuestionType(QuestionType(qRound(jsonObj["questionType"].toDouble())));
      // json encapsulates the QJsonArray
     QJsonArray jsonArray  = jsonObj["answers"].toArray();
     foreach(QJsonValue jsonAnswer, jsonArray)
     {
-        Answer a;
-        a.read(jsonAnswer.toObject());
-        this->addAnswerToList(&a);
+        Answer *a = new Answer();
+        a->read(jsonAnswer.toObject());
+        this->addAnswerToList(a);
     };
 };
 

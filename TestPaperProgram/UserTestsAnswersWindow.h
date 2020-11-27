@@ -2,6 +2,7 @@
 #define USERTESTSANSWERSWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 
 namespace Ui {
 class UserTestsAnswersWindow;
@@ -18,7 +19,7 @@ public:
 private slots:
     void on_ButtonGoBack_clicked();
 
-    void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
+    void on_ListWidgetTestsResults_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 
 private:
     Ui::UserTestsAnswersWindow *ui;

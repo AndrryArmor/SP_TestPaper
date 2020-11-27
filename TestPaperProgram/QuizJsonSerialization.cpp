@@ -12,13 +12,12 @@ QByteArray QuizJsonSerializer::serialize(const JsonSerializable &obj)
     return result;
 }
 
-void QuizJsonSerializer::parse(const QString &json, JsonSerializable &jsonSerializable)
+void QuizJsonSerializer::parse(const QString &json, JsonSerializable *jsonSerializable)
 {
     QJsonDocument document = QJsonDocument::fromJson(json.toUtf8());
 
     // The document wrap a jsonObject
     QJsonObject jsonObj = document.object();
 
-    jsonSerializable.read(jsonObj);
-
+    jsonSerializable->read(jsonObj);
 }

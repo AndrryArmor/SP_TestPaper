@@ -1,6 +1,11 @@
 #include "Presenter.h"
 #include "IResultCounterService.h"
 #include "TestQuizBuilder.h"
+#include "TestQuizSerialization.h"
+#include <QFileDialog>
+#include <QDir>
+#include "QuizJsonSerialization.h"
+#include <FileManager.h>
 
 Presenter::Presenter(MainWindow *mainWindow,
                      Game *game,
@@ -18,8 +23,15 @@ Presenter::~Presenter()
 
 void Presenter::on_TestStarted()
 {
+    Quiz *quiz = new Quiz();
+    QDir dir(QDir::currentPath());
+    QString filePath = QFileDialog::getOpenFileName(_mainWindow, tr("Відкрити тест"),
+                                                    dir.relativeFilePath("../TestPaperProgram/Tests"),
+                                                    tr("JSON файли (*.json)"));
+    QuizJsonSerializer::parse(FileManager().LoadFromFile(filePath), quiz);
+
     // точка костилізації
-    _testingWindow = new TestingWindow(_game->GetTestQuizesData(), _mainWindow);
+    _testingWindow = new TestingWindow(quiz, _mainWindow);
 
     QObject::connect(_testingWindow, &TestingWindow::testFinished, this, &Presenter::on_TestFinished);
 

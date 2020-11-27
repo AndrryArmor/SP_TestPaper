@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow mainWindow;
-    TestQuizSerialization::testSerializeAndDeserializeQuestion();
     IResultCounterService *service = new ResultCounterService();
     Game *game = new Game();
     Presenter *presenter = new Presenter(&mainWindow, game, service);

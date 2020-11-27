@@ -18,7 +18,7 @@ void UserTestsAnswersWindow::on_ButtonGoBack_clicked()
 
 }
 
-void UserTestsAnswersWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+void UserTestsAnswersWindow::on_ListWidgetTestsResults_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
 
 }

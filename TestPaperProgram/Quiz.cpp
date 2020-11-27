@@ -45,9 +45,9 @@ void Quiz::read(const QJsonObject &jsonObj)
 
     foreach(QJsonValue jsonAnswer, jsonArray)
     {
-        Question q;
-        q.read(jsonAnswer.toObject());
-        this->addQuestionToList(&q);
+        Question *q = new Question();
+        q->read(jsonAnswer.toObject());
+        this->addQuestionToList(q);
     }
 }
 
