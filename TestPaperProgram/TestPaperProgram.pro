@@ -22,6 +22,7 @@ SOURCES += \
     TestQuizSerialization.cpp \
     TestingWindow.cpp \
     Tutor.cpp \
+    UserTestsAnswersWindow.cpp \
     main.cpp
 
 HEADERS += \
@@ -40,11 +41,13 @@ HEADERS += \
     TestQuizBuilder.h \
     TestQuizSerialization.h \
     TestingWindow.h \
-    Tutor.h
+    Tutor.h \
+    UserTestsAnswersWindow.h
 
 FORMS += \
     MainWindow.ui \
-    TestingWindow.ui
+    TestingWindow.ui \
+    UserTestsAnswersWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
