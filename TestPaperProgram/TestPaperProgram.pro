@@ -16,6 +16,7 @@ SOURCES += \
     Presenter.cpp \
     Question.cpp \
     Quiz.cpp \
+    QuizAnswer.cpp \
     QuizJsonSerialization.cpp \
     ResultCounterService.cpp \
     TestQuizBuilder.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     Presenter.h \
     Question.h \
     Quiz.h \
+    QuizAnswer.h \
     QuizJsonSerialization.h \
     ResultCounterService.h \
     TestQuizBuilder.h \

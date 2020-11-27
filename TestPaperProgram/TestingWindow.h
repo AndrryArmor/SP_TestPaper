@@ -3,6 +3,7 @@
 
 #include "Question.h"
 #include "Quiz.h"
+#include "QuizAnswer.h"
 #include <QMainWindow>
 #include <QRadioButton>
 #include <QMap>
@@ -22,7 +23,8 @@ public:
     void showTestResult(float points);
 
 signals:
-    void testFinished(QMap<Question *, Answer *> *_userAnswers);
+    //void testFinished(QMap<Question *, Answer *> *_userAnswers);
+    void testFinished(QuizAnswer *_quizAnswers);
 
 private slots:
     void on_ButtonGoBack_clicked();
@@ -37,6 +39,7 @@ private:
     Question *_currentQuestion;
     int _currentQuestionNumber;
     QMap<Question *, Answer *> *_userAnswers;
+    QuizAnswer *_quizAnswer;
 
     void setQuestionProgress(int currentQuestion, int questionCount);
     void setAnswer(QRadioButton *radioButton, QString answer);

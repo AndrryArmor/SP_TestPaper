@@ -21,7 +21,7 @@ signals:
 
 private slots:
     void on_TestStarted();
-    void on_TestFinished(QMap<Question *, Answer *> *_userAnswers);
+    void on_TestFinished(QuizAnswer *_quizAnswer);
 
 private:
     MainWindow *_mainWindow;

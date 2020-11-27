@@ -39,8 +39,8 @@ void Presenter::on_TestStarted()
     _mainWindow->setHidden(true);
 }
 
-void Presenter::on_TestFinished(QMap<Question *, Answer *> *userAnswers)
+void Presenter::on_TestFinished(QuizAnswer *quizAnswer)
 {
-    float result = _resultCounterService->countResult(userAnswers);
+    float result = _resultCounterService->countResult(quizAnswer);
     _testingWindow->showTestResult(result);
 }

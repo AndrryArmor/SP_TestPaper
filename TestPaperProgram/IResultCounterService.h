@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Question.h"
+#include "QuizAnswer.h"
 using namespace std;
 
 class IResultCounterService
@@ -10,7 +11,7 @@ class IResultCounterService
 public:
     virtual ~IResultCounterService() {};
 
-    virtual float countResult(QMap<Question *, Answer *> *answers) {};
+    virtual float countResult(QuizAnswer *quizAnswer) {};
     //virtual void HandleAnsweredQuestion(Question *question) =0;
 };
 
