@@ -35,6 +35,7 @@ AnswerState Answer::getAnswerState()
     return mAnswerState;
 };
 
+
 void Answer::setAnswerId( int anwerId)
 {
     m_answer_id = anwerId;
@@ -43,4 +44,18 @@ int Answer::getAnswerId()
 {
     return m_answer_id ;
 }
+
+
+//serialization
+void Answer::read(const QJsonObject &jsonObj)
+{
+    this->setAnswerText(jsonObj["text"].toString());
+    this->setAnswerState(AnswerState(qRound(jsonObj["answerState"].toDouble())));
+};
+
+void Answer::write(QJsonObject &jsonObj)const
+{
+    jsonObj["text"] = this->mAnswerText;
+    jsonObj["answerState"] = this->mAnswerState;
+};
 

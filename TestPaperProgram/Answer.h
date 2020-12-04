@@ -3,6 +3,7 @@
 
 #include <string>
 #include <QString>
+#include <jsonserializable.h>
 using namespace std;
 
 enum AnswerState 
@@ -11,7 +12,7 @@ enum AnswerState
     InCorrect
 };
 
-class Answer
+class Answer:JsonSerializable
 {
 public:
     Answer();
@@ -21,8 +22,14 @@ public:
     void setAnswerState(AnswerState answerState);
     QString getAnswerText();
     AnswerState getAnswerState();
+
     void setAnswerId( int anwerId);
     int getAnswerId();
+
+    //serialization
+    void read(const QJsonObject &jsonObj);
+    void write(QJsonObject &jsonObj)const;
+
 
 private:
     AnswerState mAnswerState;

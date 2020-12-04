@@ -460,7 +460,7 @@ TestResults* DbManager::hydrateTestResult(QSqlQuery &query)
      QSqlQuery* l_query = new QSqlQuery(m_database);
      l_query->prepare("INSERT INTO answers (name,question_id,is_correct) "
                      "VALUES (:name,:question_id,:is_correct)");
-     l_query->bindValue(":name", answer.getAnswerText()));
+     l_query->bindValue(":name", answer.getAnswerText());
      l_query->bindValue("::is_correct", answer.getAnswerState());
      l_query->bindValue(":question_id", question_id);
 
@@ -471,7 +471,7 @@ TestResults* DbManager::hydrateTestResult(QSqlQuery &query)
 
          return false;
      }
-     answer.setAnswerId((l_query->lastInsertId().toInt());
+     answer.setAnswerId((l_query->lastInsertId().toInt()));
 
      return true;
  }
