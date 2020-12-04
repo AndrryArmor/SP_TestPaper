@@ -95,7 +95,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Результат тесту: 5/7</string>
+     <string>Результат тесту:</string>
     </property>
    </widget>
   </widget>

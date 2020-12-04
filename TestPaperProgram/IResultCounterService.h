@@ -11,7 +11,7 @@ class IResultCounterService
 public:
     virtual ~IResultCounterService() {};
 
-    virtual float countResult(QuizAnswer *quizAnswer) {};
+    virtual float countResult(QuizAnswer *quizAnswer) {} ;
     //virtual void HandleAnsweredQuestion(Question *question) =0;
 };
 

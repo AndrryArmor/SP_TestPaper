@@ -4,15 +4,15 @@
 #include <QVector>
 #include <list>
 
-TestingWindow::TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent) :
+TestingWindow::TestingWindow(Quiz *quiz, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TestingWindow)
 {
     ui->setupUi(this);
     _quiz = quiz;
-    _mainWindow = mainWindow;
     //_userAnswers = new QMap<Question *, Answer *>();
     _quizAnswer = new QuizAnswer();
+    _quizAnswer->setTestName(quiz->getQuizName());
 
     setWindowTitle(_quiz->getQuizName());
     _questionIterator = quiz->getAllQuestions()->begin();
@@ -130,14 +130,13 @@ void TestingWindow::showTestResult(float points)
 
 void TestingWindow::on_ButtonGoBack_clicked()
 {
-    _mainWindow->setVisible(true);
-    this->destroy();
+    emit testClosed();
 }
 
 void TestingWindow::on_ButtonNext_clicked()
 {
     //_userAnswers->insert((*_questionIterator), readUserAnswer());
-    _quizAnswer->userAnswers->insert((*_questionIterator), readUserAnswer());
+    _quizAnswer->getUserAnswers()->insert((*_questionIterator), readUserAnswer());
     _questionIterator++;
     _currentQuestionNumber++;
     updateView();
@@ -146,7 +145,13 @@ void TestingWindow::on_ButtonNext_clicked()
 void TestingWindow::on_ButtonFinishTest_clicked()
 {
     //_userAnswers->insert((*_questionIterator), readUserAnswer());
-    _quizAnswer->userAnswers->insert((*_questionIterator), readUserAnswer());
+    _quizAnswer->getUserAnswers()->insert((*_questionIterator), readUserAnswer());
+    _questionIterator++;
+    while (_questionIterator != _quiz->getAllQuestions()->end())
+    {
+        _quizAnswer->getUserAnswers()->insert((*_questionIterator), new Answer());
+        _questionIterator++;
+    }
 
     //emit testFinished(_userAnswers);
     emit testFinished(_quizAnswer);

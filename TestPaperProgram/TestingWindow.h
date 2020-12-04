@@ -16,7 +16,7 @@ class TestingWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent = nullptr);
+    explicit TestingWindow(Quiz *quiz, QWidget *parent = nullptr);
     ~TestingWindow();
     void updateView();
     Answer *readUserAnswer();
@@ -25,6 +25,7 @@ public:
 signals:
     //void testFinished(QMap<Question *, Answer *> *_userAnswers);
     void testFinished(QuizAnswer *_quizAnswers);
+    void testClosed();
 
 private slots:
     void on_ButtonGoBack_clicked();
@@ -33,7 +34,6 @@ private slots:
 
 private:
     Ui::TestingWindow *ui;
-    QWidget *_mainWindow;
     Quiz *_quiz;
     QVector<Question *>::Iterator _questionIterator;
     Question *_currentQuestion;

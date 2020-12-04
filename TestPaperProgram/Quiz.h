@@ -14,7 +14,7 @@ public:
 
     QVector<Question *> *getAllQuestions();
     void setQuizName(QString quizName);
-    QString  getQuizName();
+    QString getQuizName();
     void addQuestionToList(Question* question);
 
 private:

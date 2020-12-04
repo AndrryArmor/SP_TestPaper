@@ -15,9 +15,12 @@ public:
     float countResult(QuizAnswer *quizAnswer) override
     {
         float result = 0.0;
-        for (auto answer : *(quizAnswer->userAnswers))
+        QMap<Question *, Answer *> *answers = quizAnswer->getUserAnswers();
+        QMap<Question *, Answer *>::Iterator answers_iterator = answers->begin();
+        for (; answers_iterator != answers->end(); ++answers_iterator)
         {
-            if (answer != nullptr && answer->getAnswerState() == AnswerState::Correct)
+            if (*answers_iterator != nullptr && (*answers_iterator)->getAnswerState() == AnswerState::Correct
+                    && (*answers_iterator)->getAnswerText() != "")
                 result++;
         }
         return result;
