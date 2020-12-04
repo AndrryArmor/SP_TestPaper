@@ -32,3 +32,13 @@ QString Quiz::getQuizName()
 {
     return mQuizName;
 };
+
+int Quiz::getQuizId()
+{
+    return mQuizId;
+}
+
+void  Quiz::setQuizId(int quiz_id)
+{
+    mQuizId = quiz_id;
+}
