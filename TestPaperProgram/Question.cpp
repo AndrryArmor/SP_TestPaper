@@ -1,7 +1,11 @@
 //Question.cpp
 #include <iostream>
-#include "Answer.h"
 #include "Question.h"
+#include <QString>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QJsonObject>
 using namespace std;
 
 Question::Question()
@@ -61,3 +65,32 @@ class MultipleAnswerQuestion : public Question
       this->setQuestionType(QuestionType::MultiplyChoices);
     }
 }; 
+//serialization
+void Question::read(const QJsonObject &jsonObj)
+{
+    this->setQuestionText(jsonObj["question"].toString());
+    this->setQuestionType(QuestionType(qRound(jsonObj["questionType"].toDouble())));
+     // json encapsulates the QJsonArray
+    QJsonArray jsonArray  = jsonObj["answers"].toArray();
+    foreach(QJsonValue jsonAnswer, jsonArray)
+    {
+        Answer *a = new Answer();
+        a->read(jsonAnswer.toObject());
+        this->addAnswerToList(a);
+    };
+};
+
+void Question::write(QJsonObject &jsonObj) const
+{
+    jsonObj["question"] = this->mQuestion;
+    jsonObj["questionType"] = this->mQuestionType;
+    QJsonArray jsonArray;
+    QList<Answer*> list (this->mAnswers->begin(), this->mAnswers->end());
+    foreach (Answer* a , list)
+    {
+        QJsonObject jsonAnswer;
+        a->write(jsonAnswer);
+        jsonArray.append(jsonAnswer);
+    }
+    jsonObj["answers"] = jsonArray;
+};

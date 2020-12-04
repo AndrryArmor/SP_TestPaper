@@ -3,6 +3,7 @@
 
 #include "Question.h"
 #include "Quiz.h"
+#include "QuizAnswer.h"
 #include <QMainWindow>
 #include <QRadioButton>
 #include <QMap>
@@ -15,14 +16,16 @@ class TestingWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit TestingWindow(Quiz *quiz, QWidget *mainWindow, QWidget *parent = nullptr);
+    explicit TestingWindow(Quiz *quiz, QWidget *parent = nullptr);
     ~TestingWindow();
     void updateView();
     Answer *readUserAnswer();
     void showTestResult(float points);
 
 signals:
-    void testFinished(QMap<Question *, Answer *> *_userAnswers);
+    //void testFinished(QMap<Question *, Answer *> *_userAnswers);
+    void testFinished(QuizAnswer *_quizAnswers);
+    void testClosed();
 
 private slots:
     void on_ButtonGoBack_clicked();
@@ -31,12 +34,12 @@ private slots:
 
 private:
     Ui::TestingWindow *ui;
-    QWidget *_mainWindow;
     Quiz *_quiz;
     QVector<Question *>::Iterator _questionIterator;
     Question *_currentQuestion;
     int _currentQuestionNumber;
-    QMap<Question *, Answer *> *_userAnswers;
+    //QMap<Question *, Answer *> *_userAnswers;
+    QuizAnswer *_quizAnswer;
 
     void setQuestionProgress(int currentQuestion, int questionCount);
     void setAnswer(QRadioButton *radioButton, QString answer);

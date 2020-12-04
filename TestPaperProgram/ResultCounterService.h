@@ -4,7 +4,7 @@
 #include "IResultCounterService.h"
 #include "Question.h"
 #include "Answer.h"
-#include <QMap>
+#include <QuizAnswer.h>
 
 class ResultCounterService : public IResultCounterService
 {
@@ -12,12 +12,15 @@ public:
     ResultCounterService();
     ~ResultCounterService();
 
-    float countResult(QMap<Question *, Answer *> *answers) override
+    float countResult(QuizAnswer *quizAnswer) override
     {
         float result = 0.0;
-        for (auto answer : *answers)
+        QMap<Question *, Answer *> *answers = quizAnswer->getUserAnswers();
+        QMap<Question *, Answer *>::Iterator answers_iterator = answers->begin();
+        for (; answers_iterator != answers->end(); ++answers_iterator)
         {
-            if (answer != nullptr && answer->getAnswerState() == AnswerState::Correct)
+            if (*answers_iterator != nullptr && (*answers_iterator)->getAnswerState() == AnswerState::Correct
+                    && (*answers_iterator)->getAnswerText() != "")
                 result++;
         }
         return result;

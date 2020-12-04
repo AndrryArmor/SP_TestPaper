@@ -18,9 +18,11 @@ public:
 
 signals:
     void testStarted();
+    void showTestsAnswers();
 
 private slots:
     void on_ButtonStartTest_clicked();
+    void on_ButtonViewTestResults_clicked();
     void on_ButtonQuit_clicked();
 
 private:

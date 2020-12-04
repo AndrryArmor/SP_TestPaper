@@ -6,11 +6,13 @@
  */
 
 #include <QApplication>
+#include <TestQuizSerialization.h>
 #include <iostream>
 #include "MainWindow.h"
 #include "Game.h"
 #include "Presenter.h"
 #include "ResultCounterService.h"
+
 
 int main(int argc, char *argv[])
 {
