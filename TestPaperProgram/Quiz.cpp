@@ -34,10 +34,19 @@ QString Quiz::getQuizName()
     return mQuizName;
 };
 
+int Quiz::getQuizId()
+{
+    return mQuizId;
+}
+
+void  Quiz::setQuizId(int quiz_id)
+{
+    mQuizId = quiz_id;
+}
+
 //serialization
 void Quiz::read(const QJsonObject &jsonObj)
-{
-	
+{	
     this->setQuizName(jsonObj["name"].toString());
      // json encapsulates the QJsonArray
     QJsonArray jsonArray = jsonObj["questions"].toArray();

@@ -1,8 +1,10 @@
-QT       += core gui
+QT       += core gui sql
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
+
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -18,8 +20,10 @@ SOURCES += \
     Question.cpp \
     Quiz.cpp \
     TestQuizBuilder.cpp \
+    TestResults.cpp \
     TestingWindow.cpp \
     Tutor.cpp \
+    dbmanager.cpp \
     main.cpp \
     serialization/FileManager.cpp \
     serialization/QuizJsonSerializer.cpp
@@ -36,9 +40,11 @@ HEADERS += \
     TestQuizBuilder.h \
     TestingWindow.h \
     Tutor.h \
+    dbmanager.h \
     serialization/FileManager.h \
     serialization/JsonSerializable.h \
-    serialization/QuizJsonSerializer.h
+    serialization/QuizJsonSerializer.h \
+    testresults.h
 
 FORMS += \
     MainWindow.ui \

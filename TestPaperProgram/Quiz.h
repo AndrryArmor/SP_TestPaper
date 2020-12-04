@@ -22,10 +22,13 @@ public:
     //serialization
 	void read(const QJsonObject &jsonObj);
     void write(QJsonObject &jsonObj) ;
+    void setQuizId(int quiz_id);
+    int getQuizId();
 
 private:
     QVector<Question *> mQuestions;
     QString mQuizName;
+    int mQuizId;
 };
 
 #endif // QUIZ_H

@@ -45,7 +45,14 @@ QVector<Answer> Question::getAllAnswers()
 {
     return mAnswers;
 };
-
+void Question::setQuestionId(int quiz_id)
+{
+    m_quizId = quiz_id;
+}
+int Question::getQuestionId()
+{
+    return m_quizId
+}
 
 
 QuestionType Question::getQuestionType()
