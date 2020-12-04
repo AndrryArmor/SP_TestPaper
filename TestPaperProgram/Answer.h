@@ -21,10 +21,13 @@ public:
     void setAnswerState(AnswerState answerState);
     QString getAnswerText();
     AnswerState getAnswerState();
+    void setAnswerId( int anwerId);
+    int getAnswerId();
 
 private:
     AnswerState mAnswerState;
     QString mAnswerText;
+    int m_answer_id;
 };
 
 #endif // ANSWER_H

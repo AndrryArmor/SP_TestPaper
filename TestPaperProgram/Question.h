@@ -23,11 +23,14 @@ public:
     QuestionType getQuestionType();
     void addAnswerToList(Answer* answer);
     QVector<Answer*> *getAllAnswers();
+    void setQuestionId(int questionId);
+    int getQuestionId( );
 
 private:
     QuestionType mQuestionType;
     QVector<Answer*> *mAnswers;
     QString mQuestion;
+    int m_questionId;
 };
 
 #endif // QUESTION_H

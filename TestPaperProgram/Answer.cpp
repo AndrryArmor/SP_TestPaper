@@ -34,3 +34,13 @@ AnswerState Answer::getAnswerState()
 {
     return mAnswerState;
 };
+
+void Answer::setAnswerId( int anwerId)
+{
+    m_answer_id = anwerId;
+}
+int Answer::getAnswerId()
+{
+    return m_answer_id ;
+}
+

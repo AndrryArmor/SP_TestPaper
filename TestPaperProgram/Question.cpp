@@ -61,3 +61,12 @@ class MultipleAnswerQuestion : public Question
       this->setQuestionType(QuestionType::MultiplyChoices);
     }
 }; 
+
+void Question::setQuestionId(int questionId)
+{
+    m_questionId = questionId;
+}
+int Question::getQuestionId( )
+{
+    return m_questionId;
+}

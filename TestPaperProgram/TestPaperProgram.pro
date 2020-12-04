@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,7 +19,9 @@ SOURCES += \
     TestQuizBuilder.cpp \
     TestingWindow.cpp \
     Tutor.cpp \
-    main.cpp
+    dbmanager.cpp \
+    main.cpp \
+    testresults.cpp
 
 HEADERS += \
     Answer.h \
@@ -33,7 +35,9 @@ HEADERS += \
     ResultCounterService.h \
     TestQuizBuilder.h \
     TestingWindow.h \
-    Tutor.h
+    Tutor.h \
+    dbmanager.h \
+    testresults.h
 
 FORMS += \
     MainWindow.ui \
