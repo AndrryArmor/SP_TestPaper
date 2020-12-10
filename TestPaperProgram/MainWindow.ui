@@ -39,7 +39,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>10</y>
       <width>300</width>
       <height>100</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>220</y>
+      <y>250</y>
       <width>300</width>
       <height>100</height>
      </rect>
@@ -69,6 +69,24 @@
     </property>
     <property name="text">
      <string>Вийти з програми</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonViewTestResults">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>300</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Пройдені тести</string>
     </property>
    </widget>
   </widget>

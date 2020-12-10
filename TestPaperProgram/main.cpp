@@ -7,13 +7,16 @@
 
 #include <dbmanager.h>
 #include <QApplication>
+#include <TestQuizSerialization.h>
 #include <iostream>
 #include "MainWindow.h"
 #include "Game.h"
 #include "Presenter.h"
 #include "ResultCounterService.h"
 
+
 static const QString path = "database.db";
+
 
 int main(int argc, char *argv[])
 {

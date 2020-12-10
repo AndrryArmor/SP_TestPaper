@@ -23,3 +23,8 @@ void MainWindow::on_ButtonQuit_clicked()
 {
     exit(0);
 }
+
+void MainWindow::on_ButtonViewTestResults_clicked()
+{
+    emit showTestsAnswers();
+}

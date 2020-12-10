@@ -19,12 +19,13 @@ public:
     void setTestId(int testId);
     int getTestId();
     void setAccessDate(QDateTime dateTime);
-    QDateTime getAccessDate();
+    QString getAccessDate();
 
 private:
      int m_testResultId;
      int m_testId;
      double  m_score;
+
      QString  m_jsonQuestionAnswers;
      QDateTime mAccessDate;
 

@@ -37,6 +37,7 @@ DbManager::DbManager()
 }
 
 
+
 DbManager::DbManager(const QString &path)
 {
     m_database = QSqlDatabase::addDatabase("QSQLITE");
@@ -92,6 +93,7 @@ bool DbManager::initDatabase()
      }
      return l_ret;
    }
+
 
 void DbManager::addTestData()
 {

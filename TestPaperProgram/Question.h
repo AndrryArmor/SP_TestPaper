@@ -12,7 +12,7 @@ enum QuestionType
     MultiplyChoices
 };
 
-class Question
+class Question:JsonSerializable
 {
 public:
     Question();
@@ -25,6 +25,12 @@ public:
     QVector<Answer*> *getAllAnswers();
     void setQuestionId(int questionId);
     int getQuestionId( );
+
+    QVector<Answer*>::Iterator _answerIterator;
+    //serialization
+    void read(const QJsonObject &jsonObj);
+    void write(QJsonObject &jsonObj)const;
+
 
 private:
     QuestionType mQuestionType;

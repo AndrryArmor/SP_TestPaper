@@ -1,0 +1,43 @@
+{
+    "name": "First quiz for text",
+    "questions": [
+        {
+            "answers": [
+                {
+                    "answerState": 0,
+                    "text": "2"
+                }
+            ],
+            "question": "1+1=?",
+            "questionType": 0
+        },
+        {
+            "answers": [
+                {
+                    "answerState": 0,
+                    "text": "3"
+                }
+            ],
+            "question": "1+2=?",
+            "questionType": 0
+        },
+        {
+            "answers": [
+                {
+                    "answerState": 0,
+                    "text": "8"
+                },
+                {
+                    "answerState": 1,
+                    "text": "4"
+                },
+                {
+                    "answerState": 1,
+                    "text": "3"
+                }
+            ],
+            "question": "1+7=?",
+            "questionType": 0
+        }
+    ]
+}

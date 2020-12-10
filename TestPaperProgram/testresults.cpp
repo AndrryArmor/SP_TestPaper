@@ -41,7 +41,9 @@ void TestResults::setAccessDate(QDateTime dateTime)
 {
    mAccessDate = dateTime;
 }
-QDateTime TestResults::getAccessDate()
+
+
+QString TestResults::getAccessDate()
 {
-    return mAccessDate;
+    return mAccessDate.toString();
 }
