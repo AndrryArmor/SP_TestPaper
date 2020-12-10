@@ -5,6 +5,7 @@
  * Юхимчук Анастасія
  */
 
+#include <dbmanager.h>
 #include <QApplication>
 #include <iostream>
 #include "MainWindow.h"
@@ -12,9 +13,24 @@
 #include "Presenter.h"
 #include "ResultCounterService.h"
 
+static const QString path = "database.db";
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    DbManager db(path);
+
+    if (db.openDatabase())
+    {
+
+        db.initDatabase();
+        db.addTestData();
+    }
+    else
+    {
+       QT_DEBUG("Database is not open!");
+    }
+
     MainWindow mainWindow;
     IResultCounterService *service = new ResultCounterService();
     Game *game = new Game();
@@ -24,3 +40,8 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+
+
+
+

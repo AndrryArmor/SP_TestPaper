@@ -8,6 +8,7 @@
 #include <QtSql>
 
 
+
 DbManager::DbManager()
 {
     m_testFields =
@@ -33,6 +34,31 @@ DbManager::DbManager()
             "tr.json_question_answers, ",
             "tr.access_date ";
 
+}
+
+
+DbManager::DbManager(const QString &path)
+{
+    m_database = QSqlDatabase::addDatabase("QSQLITE");
+    m_database.setDatabaseName(path);
+
+    if (!m_database.open())
+    {
+        qDebug() << "Error: connection with database fail";
+    }
+    else
+    {
+        qDebug() << "Database: connection ok";
+    }
+}
+
+
+DbManager::~DbManager()
+{
+    if (m_database.isOpen())
+    {
+        m_database.close();
+    }
 }
 
 bool DbManager::openDatabase()
@@ -67,6 +93,57 @@ bool DbManager::initDatabase()
      return l_ret;
    }
 
+void DbManager::addTestData()
+{
+    //add quiz
+    Quiz *quiz1 ;
+    quiz1->setQuizName("First quiz for text");
+    insertNewQuiz(*quiz1);
+
+
+    //add questions
+    Question* question1 = new Question();
+    question1->setQuestionText("1+1=?");
+    question1->setQuestionType(QuestionType::ShortAnswer);
+    insertNewQuestion(*question1,1);
+
+    Question* question2 =new Question();
+    question2->setQuestionText("1+2=?");
+    question2->setQuestionType(QuestionType::ShortAnswer);
+    insertNewQuestion(*question2,1);
+
+    Question* question3= new Question();
+    question3->setQuestionText("1+7=?");
+    question3->setQuestionType(QuestionType::ShortAnswer);
+    insertNewQuestion(*question2,1);
+
+    //add answers
+
+    Answer* answer1= new Answer();
+    answer1->setAnswerText("2");
+    answer1->setAnswerState(AnswerState::Correct);
+    insertNewAnswer(*answer1,1);
+    Answer* answer2= new Answer();
+    answer2->setAnswerText("3");
+    answer2->setAnswerState(AnswerState::Correct);
+    insertNewAnswer(*answer2,2);
+
+    Answer* answer3= new Answer();
+    answer3->setAnswerText("8");
+    answer3->setAnswerState(AnswerState::Correct);
+
+    Answer* answer4 = new Answer();
+    answer4->setAnswerText("4");
+    answer4->setAnswerState(AnswerState::InCorrect);
+
+    Answer* answer5 = new Answer();
+    answer5->setAnswerText("3");
+    answer5->setAnswerState(AnswerState::InCorrect);
+    insertNewAnswer(*answer3,3);
+    insertNewAnswer(*answer4,3);
+    insertNewAnswer(*answer5,3);
+
+}
 
 
 bool DbManager::createTestsDatabase(QSqlQuery &query)

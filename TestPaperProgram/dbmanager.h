@@ -16,6 +16,7 @@ public:
        bool closeDatabase();
        bool initDatabase();
        bool deleteDatabase();
+       void addTestData();
        bool createTestsDatabase(QSqlQuery &query);
        bool createQuestionsDatabase(QSqlQuery &query);
        bool createAnswersDatabase(QSqlQuery &query);
