@@ -37,7 +37,6 @@ public:
        bool insertNewQuiz(Quiz &quiz);
        bool updateQuiz(Quiz &quiz);
        bool deleteQuiz(const int quiz_id);
-       bool updateQuiz(Quiz &quiz);
 
 
        //answers
