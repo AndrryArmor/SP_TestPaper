@@ -34,6 +34,17 @@ QString Quiz::getQuizName()
 };
 
 
+int Quiz::getQuizId()
+{
+    return mQuizId;
+}
+
+void  Quiz::setQuizId(int quiz_id)
+{
+    mQuizId = quiz_id;
+}
+
+
 //serialization
 void Quiz::read(const QJsonObject &jsonObj)
 {
@@ -65,4 +76,5 @@ void Quiz::write(QJsonObject &jsonObj) const
     }
     jsonObj["questions"] = jsonArray;
 }
+
 
