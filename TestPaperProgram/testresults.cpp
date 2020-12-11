@@ -8,6 +8,7 @@ TestResults::TestResults()
 void TestResults::setJsonQuestionAnswers(QString jsonQuestionAnswers)
 {
 
+    m_jsonQuestionAnswers= jsonQuestionAnswers;
 }
 QString TestResults::getJsonQuestionAnswers()
 {

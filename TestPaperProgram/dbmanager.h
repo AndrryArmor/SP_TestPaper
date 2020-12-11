@@ -38,7 +38,6 @@ public:
        Quiz* getOneQuizById(const int id);
        QVector<Quiz*>* getAllQuizes();
        bool insertNewQuiz(Quiz &quiz);
-
        bool deleteQuiz(const int quiz_id);
        bool updateQuiz(Quiz &quiz);
 

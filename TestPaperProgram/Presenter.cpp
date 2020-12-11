@@ -8,7 +8,11 @@
 #include <QDir>
 #include <QDate>
 #include <QTime>
+#include <QTextCodec>
 #include "UserTestsAnswersWindow.h"
+#include "dbManager.h"
+
+static const QString path = "database.db";
 
 Presenter::Presenter(MainWindow *mainWindow,
                      Game *game,
@@ -32,13 +36,24 @@ Presenter::~Presenter()
 void Presenter::on_TestStarted()
 {
     Quiz *quiz = new Quiz();
-    QString filePath = QFileDialog::getOpenFileName(_mainWindow, "Відкрити тест",
+    DbManager db(path);
+   if (db.openDatabase())
+   {
+       quiz = db.getOneQuizById(1);
+   }
+   else
+   {
+      QT_DEBUG("Database is not open!");
+   }
+
+    /*QString filePath = QFileDialog::getOpenFileName(_mainWindow, "Відкрити тест",
                                                     _appDir + QString("/Tests"),
                                                     "JSON файли (*.json)");
     if (filePath.isNull() || filePath.isEmpty())
         return;
 
     QuizJsonSerializer::parse(FileManager().LoadFromFile(filePath), quiz);
+    */
 
     _testingWindow = new TestingWindow(quiz, _mainWindow);
 
@@ -53,14 +68,30 @@ void Presenter::on_TestFinished(QuizAnswer *quizAnswer)
 {
     float result = _resultCounterService->countResult(quizAnswer);
     _testingWindow->showTestResult(result);
+     DbManager db(path);
+    if (db.openDatabase())
+    {
+        TestResults* testResults = new TestResults();
+        testResults->setTestResultScore(result);
+        testResults->setTestId(1);
+        testResults->setAccessDate(QDateTime::currentDateTime());
+        QByteArray array = QuizJsonSerializer::serialize(*quizAnswer);
+        QString data = QString::fromStdString(array.toStdString());
+        testResults->setJsonQuestionAnswers(data);
+        db.insertNewTestResult(*testResults,1);
+    }
+    else
+    {
+       QT_DEBUG("Database is not open!");
+    }
 
-    QString fileFolder = "/TestsAnswers/";
+   /* QString fileFolder = "/TestsAnswers/";
     QDir directory(_appDir + fileFolder);
     QStringList answersFiles = directory.entryList(QStringList() << "*.json", QDir::Files);
     QString fileName = QString("TestAnswer") + QString::number(answersFiles.size() + 1)
                                              + QString(".json");
     FileManager().SaveToFile(QuizJsonSerializer::serialize(*quizAnswer),
-                             _appDir + fileFolder + fileName);
+                             _appDir + fileFolder + fileName);*/
 }
 
 void Presenter::on_TestClosed()

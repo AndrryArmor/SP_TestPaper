@@ -24,7 +24,7 @@ DbManager::DbManager()
     m_answerFields =
             "a.answer_id, "
             "a.name, "
-            "a.question_id, ",
+            "a.question_id, "
             "a.is_correct ";
 
     m_test_resultFields =
@@ -38,7 +38,7 @@ DbManager::DbManager()
 
 
 
-DbManager::DbManager(const QString &path)
+DbManager::DbManager(const QString &path):DbManager()
 {
     m_database = QSqlDatabase::addDatabase("QSQLITE");
     m_database.setDatabaseName(path);
@@ -98,6 +98,8 @@ bool DbManager::initDatabase()
 
 void DbManager::addTestData()
 {
+    if(getAllQuizes()->count()==0)
+    {
     //add quiz
     Quiz *quiz1 = new Quiz();
     quiz1->setQuizName("First quiz for text");
@@ -145,7 +147,7 @@ void DbManager::addTestData()
     insertNewAnswer(*answer3,3);
     insertNewAnswer(*answer4,3);
     insertNewAnswer(*answer5,3);
-
+    }
 }
 
 
@@ -237,11 +239,14 @@ Quiz* DbManager::hydrateQuiz(QSqlQuery &query)
 
 void DbManager::setQuestionToQuiz(Quiz &quiz)
 {
+
     QSqlQuery* l_query = new QSqlQuery(m_database);
-    l_query->prepare("SELECT " + m_questionFields +
-                    "FROM questions AS q, tests AS t "
-                    "WHERE q.test_id = :id_test");
-    l_query->bindValue("id_test", quiz.getQuizId());
+     l_query->prepare("SELECT  DISTINCT " +m_questionFields +
+                       "FROM questions AS q, tests AS t "
+                       "WHERE q.test_id = :id");
+
+    l_query->bindValue(":id", quiz.getQuizId());
+   // l_query->bindValue("id_test", quiz.getQuizId());
 
     if (!l_query->exec())
     {
@@ -257,7 +262,7 @@ void DbManager::setQuestionToQuiz(Quiz &quiz)
 
 Question* DbManager::hydrateQuestion(QSqlQuery &query)
 {
-   Question* l_question;
+   Question* l_question = new Question();
     l_question->setQuestionId(query.value(0).toInt());
     l_question->setQuestionText(query.value(1).toString());
     l_question->setQuestionType(QuestionType(qRound(query.value(3).toDouble())));
@@ -268,10 +273,10 @@ Question* DbManager::hydrateQuestion(QSqlQuery &query)
 void DbManager::setAnswerToQuestion(Question &question)
 {
     QSqlQuery* l_query = new QSqlQuery(m_database);
-    l_query->prepare("SELECT " + m_answerFields +
+    l_query->prepare("SELECT DISTINCT " + m_answerFields +
                     "FROM answers AS a, questions AS q "
                     "WHERE a.question_id = :id_question");
-    l_query->bindValue("id_question", question.getQuestionId());
+    l_query->bindValue(":id_question", question.getQuestionId());
 
     if (!l_query->exec())
     {
@@ -559,7 +564,7 @@ TestResults* DbManager::hydrateTestResult(QSqlQuery &query)
 
 
      QSqlQuery* l_query = new QSqlQuery(m_database);
-     l_query->prepare("INSERT INTO answers (test_id,score,json_question_answers,access_date) "
+     l_query->prepare("INSERT INTO test_results (test_id,score,json_question_answers,access_date) "
                      "VALUES (:test_id,:score,:json_question_answers,:access_date)");
      l_query->bindValue(":score",testResult.getTestResultScore());
      l_query->bindValue(":json_question_answers",testResult.getJsonQuestionAnswers());

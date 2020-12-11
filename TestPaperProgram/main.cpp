@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
     if (db.openDatabase())
     {
 
-        db.initDatabase();
-        db.addTestData();
+        //db.initDatabase();
+        //db.addTestData();
     }
     else
     {
