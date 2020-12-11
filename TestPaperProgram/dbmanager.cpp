@@ -84,12 +84,13 @@ bool DbManager::initDatabase()
      bool l_ret = false;
      if (m_database.isOpen())
          {
-          QSqlQuery l_query(m_database);
-          l_ret &= createTestsDatabase(l_query);
-          l_ret = l_query.exec("PRAGMA foreign_keys = ON");
-          l_ret &= createAnswersDatabase(l_query);
-          l_ret &= createQuestionsDatabase(l_query);
-          l_ret &= createTestResultsDatabase(l_query);
+          QSqlQuery* l_query = new QSqlQuery(m_database);
+
+          l_ret &= createTestsDatabase(*l_query);
+          l_ret = l_query->exec("PRAGMA foreign_keys = ON");
+          l_ret &= createAnswersDatabase(*l_query);
+          l_ret &= createQuestionsDatabase(*l_query);
+          l_ret &= createTestResultsDatabase(*l_query);
      }
      return l_ret;
    }
@@ -98,7 +99,7 @@ bool DbManager::initDatabase()
 void DbManager::addTestData()
 {
     //add quiz
-    Quiz *quiz1 ;
+    Quiz *quiz1 = new Quiz();
     quiz1->setQuizName("First quiz for text");
     insertNewQuiz(*quiz1);
 
@@ -190,7 +191,7 @@ bool DbManager::createAnswersDatabase(QSqlQuery &query)
                   "name text NOT NULL,"
                   "question_id integer,"
                   "is_correct int NOT NULL,"
-                  "FOREIGN KEY (question_id) REFERENCES questions (test_id)"
+                  "FOREIGN KEY (question_id) REFERENCES questions (question_id)"
                           "ON DELETE CASCADE ON UPDATE NO ACTION"
              ")");
 
@@ -517,7 +518,7 @@ TestResults* DbManager::hydrateTestResult(QSqlQuery &query)
      l_query->prepare("INSERT INTO questions (name,question_type,test_id) "
                      "VALUES (:name,:question_type,:test_id)");
      l_query->bindValue(":name", question.getQuestionText());
-     l_query->bindValue(":question_type", question.getQuestionType());
+     l_query->bindValue(":question_type", static_cast<int>(question.getQuestionType()));
      l_query->bindValue(":test_id", test_id);
 
      if (!l_query->exec())
@@ -534,13 +535,11 @@ TestResults* DbManager::hydrateTestResult(QSqlQuery &query)
 
  bool DbManager::insertNewAnswer(Answer &answer, const int question_id)
  {
-
-
      QSqlQuery* l_query = new QSqlQuery(m_database);
      l_query->prepare("INSERT INTO answers (name,question_id,is_correct) "
                      "VALUES (:name,:question_id,:is_correct)");
      l_query->bindValue(":name", answer.getAnswerText());
-     l_query->bindValue("::is_correct", answer.getAnswerState());
+     l_query->bindValue(":is_correct", static_cast<int>(answer.getAnswerState()));
      l_query->bindValue(":question_id", question_id);
 
      if (!l_query->exec())
@@ -563,7 +562,7 @@ TestResults* DbManager::hydrateTestResult(QSqlQuery &query)
      l_query->prepare("INSERT INTO answers (test_id,score,json_question_answers,access_date) "
                      "VALUES (:test_id,:score,:json_question_answers,:access_date)");
      l_query->bindValue(":score",testResult.getTestResultScore());
-     l_query->bindValue("::json_question_answers",testResult.getJsonQuestionAnswers());
+     l_query->bindValue(":json_question_answers",testResult.getJsonQuestionAnswers());
      l_query->bindValue(":access_date", testResult.getAccessDate());
      l_query->bindValue(":test_id", test_id);
 
